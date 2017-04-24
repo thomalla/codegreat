@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(pageTitle='login')">
+</head>
+
+<body>
+<div th:include="layout/layout :: toolbar"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<header>
+
+    <link href="css/signin.css" rel="stylesheet">
+
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Zaloguj się</h2>
+            <label for="inputLogin" class="sr-only">Nazwa użytkownika</label>
+            <input type="email" id="inputLogin" class="form-control" placeholder="Nazwa użytkownika" required autofocus>
+            <label for="inputPassword" class="sr-only">Hasło</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" required>
+            <label class = "register-link">
+                Nie masz jeszcze konta?
+            </label>
+                <button class="btn btn-default btn-xs" onclick="window.location.href='/register'">Zarejestruj się</button>
+
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj się</button>
+        </form>
+    </div>
+</header>
+</body>

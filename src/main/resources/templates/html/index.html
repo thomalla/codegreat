@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(pageTitle='codegreat')">
+</head>
+<body>
+    <div th:include="layout/layout :: toolbar"></div>
+    <div id="fullscreen_bg" class="fullscreen_bg"/>
+
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Witamy na CodeGreat!</div>
+                <div class="intro-heading">Z nami poznasz tajniki języka c++</div>
+                <form action="/#">
+                    <button class="btn btn-success btn-lg">Dowiedz się więcej</button>
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+</body>
