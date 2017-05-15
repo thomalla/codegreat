@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pk.project.model.User;
-import pk.project.repository.UserRepository;
+import pk.project.repository.StudentRepository;
 import pk.project.util.Path.Web;
 import pk.project.util.Path.Template;
 import pk.project.util.TokenGenerator;
@@ -17,19 +17,26 @@ import pk.project.util.TokenGenerator;
 public class UserController
 {
     @Autowired
-    UserRepository userRepository;
-    TokenGenerator tokenGenerator = new TokenGenerator();
+    StudentRepository studentRepository;
 
     @RequestMapping(value = Web.LOGIN, method = RequestMethod.GET)
     public String serveLoginPage()
     {
         return Template.LOGIN;
     }
-
+         
     @RequestMapping(value = Web.REGISTER, method = RequestMethod.GET)
     public String serveRegisterPage()
     {
         return Template.REGISTER;
     }
+
+    @RequestMapping(value = Web.REGISTER, method = RequestMethod.POST)
+    public String registerUser(@ModelAttribute("newUser") User user)
+    {
+        studentRepository.save(user);
+        return "html/index"; //TODO Template.REGISTER_SUCCESS
+    }
+    
 
 }
