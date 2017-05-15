@@ -17,13 +17,20 @@ import pk.project.util.Path.EmailTemplate;
 
 public class EmailSender
 {
-    private final String senderEmail = "****@gmail.com";
-    private final String password = "********";
+    private final String senderEmail = "contact.codegreat@gmail.com";
+    private final String password = "odormiesa";
     private final String host = "smtp.gmail.com";
 
     public boolean send(String[] to, String subject, String body)
     {
         Properties props = System.getProperties();
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", senderEmail);
+        props.put("mail.smtp.password", password);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
         Session session = Session.getDefaultInstance(props);
         MimeMessage message = new MimeMessage(session);
 
