@@ -26,4 +26,14 @@ public class EmailSenderTest
                 "</html>";
         Assert.assertTrue("send must returns true", emailSender.send(to,"simpleHtmlSendTest()", htmlBody));
     }
+
+    /*
+    @Test
+    public void registrationLinkSendTest()
+    {
+        TokenGenerator tokenGenerator = new TokenGenerator();
+        Assert.assertTrue("send must returns true",
+                emailSender.sendRegistrationLink("contact.codegreat@gmail.com", "UnitTest", tokenGenerator.nextToken()));
+    }
+    */
 }

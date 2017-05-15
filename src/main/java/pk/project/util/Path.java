@@ -36,7 +36,8 @@ public class Path
 
     public static class EmailTemplate
     {
-        public static final String REGISTRATION_LINK = "html/email/registrationLink.html";
+        //TODO why we must write whole location?
+        public static final String REGISTRATION_LINK = "src/main/resources/templates/html/email/registrationLink.html";
     }
 
 }
