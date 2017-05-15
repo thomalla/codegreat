@@ -21,10 +21,13 @@ public class Path
         public static final String INDEX = "html/index.html";
         public static final String REGISTER = "html/register.html";
         public static final String LOGIN = "html/login.html";
-        public static final String REGISTER_SUCCESS = "html/registerSuccess.html";
         public static final String OFFER = "html/offer.html";
         public static final String ABOUT = "html/about.html";
         public static final String CONTACT = "html/contact.html";
+        public static final String REGISTER_FAILED = "html/registerFailed.html";
+        public static final String REGISTER_SUCCESS = "html/registerSuccess.html";
+        public static final String VERIFIACTION_SUCCESS = "html/verificationSuccess.html";
+        public static final String VERIFIACTION_FAILED = "html/verificationFailed.html";
     }
 
     public static class Email
