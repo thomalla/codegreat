@@ -2,41 +2,38 @@ package pk.project.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pk.project.util.Path.Web;
+import pk.project.util.Path.Template;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4c4feac8e099df437c76989e7f0056d6326d2f72
 @Controller
 public class HomeController
 {
-    @RequestMapping("/")
+    @RequestMapping(Web.INDEX)
     public String serveIndexPage()
     {
 
-
-        return "html/index";
+        return Template.INDEX;
     }
 
-    @RequestMapping("/offer")
+    @RequestMapping(Web.OFFER)
     public String serveOfferPage()
     {
 
-        return "html/offer";
+        return Template.OFFER;
     }
 
-    @RequestMapping("/about")
+    @RequestMapping(Web.ABOUT)
     public String serveAboutPage()
     {
 
-        return "html/about";
+        return Template.ABOUT;
     }
 
-    @RequestMapping("/contact")
+    @RequestMapping(Web.CONTACT)
     public String serveContactPage()
     {
 
-        return "html/contact";
+        return Template.CONTACT;
     }
 }
 

@@ -21,8 +21,6 @@ public class EmailSender
     private final String password = "********";
     private final String host = "smtp.gmail.com";
 
-    private final String registrationLinkHtmlFile = "html/email/registrationLink.html";
-
     public boolean send(String[] to, String subject, String body)
     {
         Properties props = System.getProperties();
@@ -85,7 +83,7 @@ public class EmailSender
         }
         catch(IOException e)
         {
-            System.out.println("--- EXCEPTION OCCURED (EmailSender::readHtmlFile) : " + e.getMessage());
+            System.out.println("--- (EXCEPTION OCCURED EmailSender::readHtmlFile) : " + e.getMessage());
         }
 
         return contentBuilder.toString();
