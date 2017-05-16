@@ -16,6 +16,7 @@ import pk.project.form.RegisterForm;
 import pk.project.model.User;
 import pk.project.repository.UserRepository;
 import pk.project.service.UserService;
+import pk.project.util.EmailSender;
 import pk.project.util.Path.Web;
 import pk.project.util.Path.Template;
 import pk.project.util.TokenGenerator;
@@ -61,6 +62,8 @@ public class UserController
     public String registerUser(@Valid @ModelAttribute("form")RegisterForm form,BindingResult bindingResult, Model model)
     {
         List<ObjectError> errorList;
+        User user;
+        EmailSender emailSender = new EmailSender();
 
         if(bindingResult.hasErrors())
         {
@@ -70,20 +73,17 @@ public class UserController
         }
         try
         {
-            userService.register(form);
+            user = userService.register(form);
         }
         catch(DataIntegrityViolationException e)
         {
             errorList=new ArrayList<>();
-            errorList.add(new ObjectError("email.exists","Email istnieje juz w bazie"));
+            errorList.add(new ObjectError("email.exists","Email istnieje już w bazie"));
             model.addAttribute("errors",errorList);
             return Template.REGISTER;
         }
 
-
-        //userRepository.save(user);
+        emailSender.sendRegistrationLink(user.getEmail(), user.getName(), user.getToken());
         return Template.REGISTER_SUCCESS;
     }
-    
-
 }
