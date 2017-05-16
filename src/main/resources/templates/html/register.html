@@ -19,9 +19,14 @@
                             <h3 class="panel-title">Rejestracja</h3>
                         </div>
                         <div class="panel-body">
-                            <form action="register" modelAttribute="newUser" onkeyup="return registerValidation()" method="post">
+                            <div th:if="!${errors.isEmpty()}">
+                                <div th:each="error:${errors}">
+                                    <p class="alert alert-danger" th:text="${error.getDefaultMessage()}"/></p>
+                                </div>
+                            </div>
+                            <form action="register" modelAttribute="form" onkeyup="return registerValidation()" method="post">
                                 <div class="form-group">
-                                    <input type="login" name="login" id="login" class="form-control input-sm" placeholder="Nazwa użytkownika" required>
+                                    <input type="text" name="login" id="login" class="form-control input-sm" placeholder="Nazwa użytkownika" required>
                                 </div>
                                 <div class="row">
 
@@ -49,7 +54,7 @@
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Powtórz hasło" required>
+                                            <input type="password" name="passwordRepeated" id="passwordRepeated" class="form-control input-sm" placeholder="Powtórz hasło" required>
                                         </div>
                                     </div>
                                 </div>
