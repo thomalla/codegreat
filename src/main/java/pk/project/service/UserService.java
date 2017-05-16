@@ -16,4 +16,6 @@ public interface UserService
     Collection<User> getAllUsers();
 
     User register(RegisterForm form);
+
+    boolean activateAccount(String token);
 }

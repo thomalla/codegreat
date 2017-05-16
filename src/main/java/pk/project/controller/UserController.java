@@ -2,24 +2,20 @@ package pk.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.method.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pk.project.form.RegisterForm;
 import pk.project.model.User;
-import pk.project.repository.UserRepository;
 import pk.project.service.UserService;
 import pk.project.util.EmailSender;
 import pk.project.util.Path.Web;
 import pk.project.util.Path.Template;
-import pk.project.util.TokenGenerator;
 import pk.project.validator.RegisterValidator;
 
 import javax.validation.Valid;
@@ -56,6 +52,19 @@ public class UserController
     {
         model.addAttribute("errors", new ArrayList<ObjectError>());
         return Template.REGISTER;
+    }
+
+    @RequestMapping(value = Web.ACCOUNTACTIVATION + "/{token}", method = RequestMethod.GET)
+    public String serveActivationPage(@PathVariable("token") String token, Model model)
+    {
+        if(userService.activateAccount(token))
+        {
+            return Template.VERIFIACTION_SUCCESS;
+        }
+        else
+        {
+            return Template.VERIFIACTION_FAILED;
+        }
     }
 
     @RequestMapping(value = Web.REGISTER, method = RequestMethod.POST)

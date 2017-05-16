@@ -1,5 +1,6 @@
 package pk.project.service;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -79,5 +80,20 @@ public class UserServiceImpl implements UserService
         user.setActivated(false);
         user.setRole(Role.USER);
         return userRepository.save(user);
+    }
+
+    @Override
+    public boolean activateAccount(String token)
+    {
+        if(token == null) return false;
+        Optional<User> user = userRepository.findOneByToken(token);
+        if(user.isPresent() && !user.get().isActivated())
+        {
+            user.get().setToken(null);
+            user.get().setActivated(true);
+            userRepository.save(user.get());
+            return true;
+        }
+        return false;
     }
 }
