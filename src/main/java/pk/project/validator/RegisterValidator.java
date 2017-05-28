@@ -30,6 +30,7 @@ public class RegisterValidator implements Validator
         RegisterForm form = (RegisterForm) o;
         validatePasswords(errors, form);
         validateEmail(errors, form);
+        validateLogin(errors,form);
     }
 
     private void validatePasswords(Errors errors, RegisterForm form) {
@@ -41,6 +42,12 @@ public class RegisterValidator implements Validator
     private void validateEmail(Errors errors, RegisterForm form) {
         if (userService.getUserByEmail(form.getEmail()).isPresent()) {
             errors.reject("email.exists", "Uzytkownik z takim mailem jest juz w bazie");
+        }
+    }
+
+    private void validateLogin(Errors errors, RegisterForm form) {
+        if (userService.getUserByLogin(form.getLogin()).isPresent()) {
+            errors.reject("login.exists", "Uzytkownik z takim loginem jest juz w bazie");
         }
     }
 }

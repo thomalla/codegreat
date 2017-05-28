@@ -38,6 +38,12 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
+    public Optional<User> getUserByLogin(String login)
+    {
+        return userRepository.findOneByLogin(login);
+    }
+
+    @Override
     public Collection<User> getAllUsers()
     {
         return null;

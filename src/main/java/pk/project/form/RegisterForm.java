@@ -1,6 +1,6 @@
 package pk.project.form;
 
-
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class RegisterForm
@@ -17,6 +17,7 @@ public class RegisterForm
     @NotEmpty
     private String email = "";
 
+    @Length(min=8, max=30,message = "Hasło musi mieć od {min} do {max} znaków")
     @NotEmpty
     private String password = "";
 
