@@ -54,14 +54,6 @@ public class UserController
         return Template.LOGIN;
     }
 
-    @PreAuthorize("currentUserServiceImpl.canAccessUser(principal,#id)")
-    @RequestMapping("/user/{id}")
-    public ModelAndView getUserPage(@PathVariable Long id) {
-        System.out.println("jestem w getuserpage");
-        return new ModelAndView("user", "user", userService.getUserById(id)
-                .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
-    }
-
     @RequestMapping(value = Web.REGISTER, method = RequestMethod.GET)
     public String serveRegisterPage(Model model)
     {

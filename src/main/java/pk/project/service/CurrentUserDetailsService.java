@@ -23,6 +23,8 @@ public class CurrentUserDetailsService implements UserDetailsService
     public CurrentUser loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = userService.getUserByLogin(login)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User with email=%s was not found", login)));
-        return new CurrentUser(user);
+        CurrentUser cu=new CurrentUser(user);
+        System.out.println(cu.toString());
+        return cu;
     }
 }
