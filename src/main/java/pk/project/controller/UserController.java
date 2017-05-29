@@ -2,12 +2,16 @@ package pk.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.method.P;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pk.project.form.RegisterForm;
 import pk.project.model.User;
 import pk.project.service.UserService;
@@ -19,6 +23,8 @@ import pk.project.validator.RegisterValidator;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 
 @Controller
@@ -39,15 +45,27 @@ public class UserController
         binder.addValidators(registerValidator);
     }
 
+
     @RequestMapping(value = Web.LOGIN, method = RequestMethod.GET)
-    public String serveLoginPage()
+    public String serveLoginPage(Model model, @RequestParam Optional<String> error)
     {
+        System.out.println("jestem w serve login");
+        model.addAttribute("errors",error);
         return Template.LOGIN;
     }
-         
+
+    @PreAuthorize("currentUserServiceImpl.canAccessUser(principal,#id)")
+    @RequestMapping("/user/{id}")
+    public ModelAndView getUserPage(@PathVariable Long id) {
+        System.out.println("jestem w getuserpage");
+        return new ModelAndView("user", "user", userService.getUserById(id)
+                .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
+    }
+
     @RequestMapping(value = Web.REGISTER, method = RequestMethod.GET)
     public String serveRegisterPage(Model model)
     {
+        System.out.println("jestem w serve register");
         model.addAttribute("errors", new ArrayList<ObjectError>());
         return Template.REGISTER;
     }
