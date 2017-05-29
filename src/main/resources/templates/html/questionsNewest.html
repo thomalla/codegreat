@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:include="layout/layout :: toolbar"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+
+    <div class="container">
+        <div class="row centered-form">
+            <div class="box">
+                <div class ="box-content">
+
+                    <div class = "row">
+                        <div class="col-sm-1">
+                            <div class="thumbnail">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                            </div><!-- /thumbnail -->
+                        </div><!-- /col-sm-1 -->
+                        <div class="col-sm-11">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                    <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                    <div class = "row">
+                                        <strong>Temat: </strong> <span class="text-muted">Todsam  dsa d asmdsa ds akdsadsadsadsadsadasdsadsadsasdsa</span> </p>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
+                                    <button class="btn btn-default btn-xs" onclick="window.location.href='/question'" >Więcej</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </div>
+
+        </div>
+</header>
+<script type="text/javascript" src="js/likeButton.js"></script>
+</body>

@@ -14,6 +14,8 @@ public class Path
         public static final String OFFER = "/offer";
         public static final String ABOUT = "/about";
         public static final String CONTACT = "/contact";
+        public static final String QUESTION = "/question";
+        public static final String QUESTIONS_NEWEST = "/questions/newest";
     }
 
     public static class Template
@@ -28,6 +30,8 @@ public class Path
         public static final String REGISTER_SUCCESS = "html/registerSuccess.html";
         public static final String VERIFIACTION_SUCCESS = "html/verificationSuccess.html";
         public static final String VERIFIACTION_FAILED = "html/verificationFailed.html";
+        public static final String QUESTIONS_NEWEST = "html/questionsNewest.html";
+        public static final String QUESTION = "html/question.html";
     }
 
     public static class Email
