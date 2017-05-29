@@ -1,7 +1,6 @@
 package pk.project.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import pk.project.model.User;
 
 import java.util.Optional;
