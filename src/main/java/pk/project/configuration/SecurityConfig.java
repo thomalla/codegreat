@@ -44,10 +44,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .permitAll();
     }
 
-    /*@Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());
-    }*/
 }

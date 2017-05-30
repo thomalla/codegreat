@@ -17,6 +17,7 @@
                    th:name="${_csrf.parameterName}"
                    th:value="${_csrf.token}" />
             <h2 class="form-signin-heading">Zaloguj się</h2>
+            <p class="alert alert-danger" th:if="${error.isPresent()}">Nazwa użytkownika lub hasło jest niepoprawne, spróbuj ponownie</p>
             <label for="login" class="sr-only">Nazwa użytkownika</label>
             <input type="text" id="login" name="login" class="form-control" placeholder="Nazwa użytkownika" required autofocus>
             <label for="password" class="sr-only">Hasło</label>
@@ -33,6 +34,8 @@
             <button class="btn btn-default btn-xs" onclick="window.location.href='/register'">Zarejestruj się</button>
             </div>
         </form>
+
     </div>
 </header>
 </body>
+</html>
