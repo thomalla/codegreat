@@ -4,6 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 @Table(name="question")
@@ -17,14 +18,18 @@ public class Question
     @Column(name="userId", nullable=false, updatable = false)
     private Long userId;
 
+    @Column(name="username", nullable=false, updatable = false)
+    private String username;
+
     @Column(name="topic", nullable = false)
     private String topic;
 
-    @Column(name="contents", nullable = false)
+    @Column(name="contents", nullable = false, length = 10000)
     private String contents;
-//
-//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//    private ArrayList<Integer> tags;
+
+    @Column(name="date")
+    @Type(type = "date")
+    private Date date;
 
     @Column(name="points")
     private Long points;
@@ -48,6 +53,16 @@ public class Question
         this.userId = userId;
     }
 
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
     public String getTopic()
     {
         return topic;
@@ -66,6 +81,16 @@ public class Question
     public void setContents(String contents)
     {
         this.contents = contents;
+    }
+
+    public Date getDate()
+    {
+        return date;
+    }
+
+    public void setDate(Date date)
+    {
+        this.date = date;
     }
 
     public Long getPoints()

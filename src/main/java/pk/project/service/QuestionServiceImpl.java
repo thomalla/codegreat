@@ -16,6 +16,7 @@ import pk.project.util.Role;
 import pk.project.util.TokenGenerator;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -47,10 +48,12 @@ public class QuestionServiceImpl implements QuestionService
     {
         Question question = new Question();
         question.setUserId(99L);
+        question.setUsername("lukaszih");
         question.setResolved(false);
         question.setPoints(0L);
         question.setTopic(questionForm.getTopic());
         question.setContents(questionForm.getContents());
+        question.setDate(new Date());
         return questionRepository.save(question);
     }
 }

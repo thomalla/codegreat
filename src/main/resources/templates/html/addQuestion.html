@@ -27,20 +27,21 @@
                         </div><!-- /col-sm-1 -->
                         <div class="col-sm-10">
                             <div class="panel panel-warning">
+                                <form action="addQuestion" modelAttribute="form" method="post">
                                 <div class="panel-heading">
 
                                     <div class = "row">
-                                        <textarea placeholder="Temat pytania" rows ="2" cols="50" type="text" id="pole2"></textarea>
+                                        <textarea placeholder="Temat pytania" rows ="2" cols="50" type="text" id="topic" name="topic"></textarea>
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form>
+
                                         <div class="col-sm-2">
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="form-group">
 
-                                                <textarea placeholder="Twoja odpowiedz" class="form-control" rows="5" id="comment"></textarea>
+                                                <textarea placeholder="Treść pytania" class="form-control" rows="5" id="contents" name="contents"></textarea>
 
                                             </div>
                                             <div class="col-sm-2">
@@ -49,8 +50,9 @@
                                             <div class="col-sm-12">
                                                 <button align="center" type="submit" class="btn btn-warning">Zadaj pytanie!</button>
                                             </div>
-                                    </form>
                                 </div>
+                                </div>
+                                </form>
                             </div>
                         </div>
 

@@ -6,7 +6,6 @@
 <body>
 <div th:include="layout/layout :: toolbar"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
-
 <header>
 
     <link href="/css/boxstyle.css" rel="stylesheet">
@@ -25,6 +24,7 @@
                 <div class ="box-content">
 
                     <div class = "row">
+                        <ul th:each="question:${newestQuestions.getContent()}">
                         <div class="col-sm-1">
                             <div class="thumbnail">
                                 <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
@@ -33,55 +33,18 @@
                         <div class="col-sm-11">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
-                                    <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                    <strong><p th:text="${question.getUsername()}"/></strong> <span class="text-muted">Dodano 5 dni temu</span>
                                     <div class = "row">
-                                        <strong>Temat: </strong> <span class="text-muted">Todsam  dsa d asmdsa ds akdsadsadsadsadsadasdsadsadsasdsa</span> </p>
+                                        <strong><span class="text-muted" th:text="${question.getTopic()}"></span></strong>
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
-                                    <button class="btn btn-default btn-xs" onclick="window.location.href='/question'" >Więcej</button>
+                                    <p th:text="${question.getContents()}"/>
+                                    <a th:href =  "@{'/question/' + ${question.getId()}}">Zobacz więcej...</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-1">
-                            <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-sm-1 -->
-                        <div class="col-sm-11">
-                            <div class="panel panel-warning">
-                                <div class="panel-heading">
-                                    <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
-                                    <div class = "row">
-                                        <strong>Temat: </strong> <span class="text-muted">Todsam  dsa d asmdsa ds akdsadsadsadsadsadasdsadsadsasdsa</span> </p>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
-                                    <button class="btn btn-default btn-xs" onclick="window.location.href='/question'" >Więcej</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-sm-1 -->
-                        <div class="col-sm-11">
-                            <div class="panel panel-warning">
-                                <div class="panel-heading">
-                                    <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
-                                    <div class = "row">
-                                        <strong>Temat: </strong> <span class="text-muted">Todsam  dsa d asmdsa ds akdsadsadsadsadsadasdsadsadsasdsa</span> </p>
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
-                                    <button class="btn btn-default btn-xs" onclick="window.location.href='/question'" >Więcej</button>
-                                </div>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
                 </div>
 

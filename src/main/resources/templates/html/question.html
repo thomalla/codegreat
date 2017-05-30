@@ -24,10 +24,13 @@
                     <div class="col-sm-11">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
-                                <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                <strong><p th:text="${question.getUsername()}"/></strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                <div class = "row">
+                                    <strong><span class="text-muted" th:text="${question.getTopic()}"></span></strong>
+                                </div>
                             </div>
                             <div class="panel-body">
-                                <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
+                                <p th:text="${question.getContents()}"/>
                             </div>
                         </div>
                     </div>
@@ -47,12 +50,10 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
-                                    <div class = "row">
-                                        <strong>Temat: </strong> <span class="text-muted">Todsam  dsa d asmdsa ds akdsadsadsadsadsadasdsadsadsasdsa</span> </p>
-                                    </div>
+
                                 </div>
                                 <div class="panel-body">
-                                    <p>dsadsadsadsadsadsadsadasdsa dsad sa dsadsadsadsa d sad sa</p>
+                                    <p>Podaje hasło: OKOń</p>
                                     <button class="btn btn-sm btn-default like-btn " type="button" id="1">
                                         <span class="glyphicon glyphicon-thumbs-up"></span>
                                         <span class="badge like-badge">8</span>

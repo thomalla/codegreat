@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import pk.project.service.QuestionService;
 import pk.project.util.Path;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class BoardController
@@ -41,10 +44,24 @@ public class BoardController
         return Path.Template.QUESTIONS_NEWEST;
     }
 
-    @RequestMapping(value = Path.Web.QUESTION, method = RequestMethod.POST)
-    public String addQuestions(@Valid @ModelAttribute("form")QuestionForm form)
+    @RequestMapping(value = Path.Web.QUESTION  + "/{questionId}", method = RequestMethod.GET)
+    public String serveQuestionPage(@PathVariable Long questionId, Model model)
+    {
+        Optional<Question> question = questionService.getQuestionById(questionId);
+        model.addAttribute(question.get());
+        return Path.Template.QUESTION;
+    }
+
+    @RequestMapping(value = Path.Web.ADD_QUESTION, method = RequestMethod.GET)
+    public String serveAddQuestionPage(Model model)
+    {
+        return Path.Template.ADD_QUESTION;
+    }
+
+    @RequestMapping(value = Path.Web.ADD_QUESTION, method = RequestMethod.POST)
+    public String addQuestion(@Valid @ModelAttribute("form")QuestionForm form)
     {
         Question question = questionService.newQuestion(form);
-        return Path.Template.QUESTION_POSTED;
+        return "redirect:/questions/newest/1";
     }
 }
