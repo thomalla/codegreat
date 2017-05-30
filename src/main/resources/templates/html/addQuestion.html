@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head(pageTitle='Forum')">
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
 
 <body>
-<div th:include="layout/layout :: toolbar"></div>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 
 <header>
@@ -28,6 +31,9 @@
                         <div class="col-sm-10">
                             <div class="panel panel-warning">
                                 <form action="addQuestion" modelAttribute="form" method="post">
+                                    <input type="hidden"
+                                           th:name="${_csrf.parameterName}"
+                                           th:value="${_csrf.token}" />
                                 <div class="panel-heading">
 
                                     <div class = "row">

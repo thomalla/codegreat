@@ -17,7 +17,7 @@ public class Question
 
     @Column(name="userId", nullable=false, updatable = false)
     private Long userId;
-    
+
     @Column(name="username", nullable=false, updatable = false)
     private String username;
 

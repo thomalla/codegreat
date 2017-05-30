@@ -3,8 +3,11 @@
 <head th:replace="layout/generalLayout :: head(pageTitle='Aktywacja konta')">
 </head>
 <body>
-    <div th:include="layout/unloggedLayout :: toolbar"></div>
-    <div id="fullscreen_bg" class="fullscreen_bg"/>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
 
     <header>
         <link href="css/register.css" rel="stylesheet">
