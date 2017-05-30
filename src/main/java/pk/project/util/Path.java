@@ -16,6 +16,7 @@ public class Path
         public static final String CONTACT = "/contact";
         public static final String QUESTION = "/question";
         public static final String QUESTIONS_NEWEST = "/questions/newest";
+        public static final String ADD_QUESTION = "/addQuestion";
     }
 
     public static class Template
@@ -31,6 +32,7 @@ public class Path
         public static final String VERIFIACTION_SUCCESS = "html/verificationSuccess.html";
         public static final String VERIFIACTION_FAILED = "html/verificationFailed.html";
         public static final String QUESTION = "html/question.html";
+        public static final String ADD_QUESTION = "html/addQuestion.html";
         public static final String QUESTIONS_NEWEST = "html/questionsNewest.html";
         public static final String QUESTION_POSTED = "html/questionPosted.html";
     }
