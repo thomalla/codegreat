@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head(pageTitle='codegreat')">
+<head th:replace="layout/generalLayout :: head(pageTitle='codegreat')">
 </head>
 <body>
-    <div th:include="layout/layout :: toolbar"></div>
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+        <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+    </div>
     <div id="fullscreen_bg" class="fullscreen_bg"/>
 
     <header>
         <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Witamy na CodeGreat!</div>
-                <div class="intro-heading">Z nami poznasz tajniki języka c++</div>
-                <form action="/offer">
-                    <button class="btn btn-success btn-lg">Dowiedz się więcej</button>
+            <div  th:if="!${currentUser}" class="intro-text">
+                    <div class="intro-lead-in">Witamy na CodeGreat!</div>
+                    <div th:if="${currentUser}">czesc user</div>
+                    <div class="intro-heading">Z nami poznasz tajniki języka c++</div>
+                    <form action="/offer">
+                        <button class="btn btn-success btn-lg">Dowiedz się więcej</button>
                 </form>
-
             </div>
+            <div th:if="${currentUser}" class="intro-text"><div th:text="'Witaj '+${currentUser.getUser().getLogin()}+'!'" class="intro-lead-in"></div></div>
         </div>
     </header>
 

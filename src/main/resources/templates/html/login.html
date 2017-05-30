@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head(pageTitle='login')">
+<head th:replace="layout/generalLayout :: head(pageTitle='login')">
 </head>
 
 <body>
-<div th:include="layout/layout :: toolbar"></div>
+<div th:include="layout/unloggedLayout :: toolbar"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 
 <header>
