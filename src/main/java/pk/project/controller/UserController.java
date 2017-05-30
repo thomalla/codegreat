@@ -93,4 +93,6 @@ public class UserController
         emailSender.sendRegistrationLink(user.getEmail(), user.getName(), user.getToken());
         return Template.REGISTER_SUCCESS;
     }
+
+    
 }
