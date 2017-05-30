@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import pk.project.form.QuestionForm;
+import pk.project.model.CurrentUser;
 import pk.project.model.Question;
 import pk.project.repository.QuestionRepository;
 
@@ -37,11 +39,12 @@ public class QuestionServiceImpl implements QuestionService
     }
 
     @Override
-    public Question newQuestion(QuestionForm questionForm)
+    public Question newQuestion(QuestionForm questionForm, Authentication authentication)
     {
+        CurrentUser currentUser = (CurrentUser) authentication.getPrincipal();
         Question question = new Question();
-        question.setUserId(99L);
-        question.setUsername("lukaszih");
+        question.setUserId(currentUser.getId());
+        question.setUsername(currentUser.getUsername());
         question.setResolved(false);
         question.setPoints(0L);
         question.setTopic(questionForm.getTopic());

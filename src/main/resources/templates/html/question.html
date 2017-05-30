@@ -4,10 +4,8 @@
 </head>
 
 <body>
-<div th:switch="${currentUser!=null}">
-    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
-    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
-</div>
+<div th:include="layout/generalLayout :: toolbar"></div>
+<div th:include="layout/generalLayout :: scripts"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 
 <header>
@@ -77,7 +75,7 @@
                             <div class="form-group">
 
                                 <textarea placeholder="Twoja odpowiedz" class="form-control" rows="5" id="comment"></textarea>
-
+                            </div>
                         </div>
                     <div class="col-sm-2">
                     </div>
@@ -93,6 +91,8 @@
             </div>
 
         </div>
+    </div>
 </header>
+
 <script type="text/javascript" src="js/likeButton.js"></script>
 </body>

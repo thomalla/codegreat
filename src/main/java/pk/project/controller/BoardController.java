@@ -2,6 +2,7 @@ package pk.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -57,9 +58,9 @@ public class BoardController
     }
 
     @RequestMapping(value = Path.Web.ADD_QUESTION, method = RequestMethod.POST)
-    public String addQuestion(@Valid @ModelAttribute("form")QuestionForm form)
+    public String addQuestion(@Valid @ModelAttribute("form")QuestionForm form, Authentication authentication)
     {
-        Question question = questionService.newQuestion(form);
+        Question question = questionService.newQuestion(form, authentication);
         return "redirect:/questions/newest/1";
     }
 }
