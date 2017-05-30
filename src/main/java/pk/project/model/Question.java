@@ -17,13 +17,7 @@ public class Question
 
     @Column(name="userId", nullable=false, updatable = false)
     private Long userId;
-
-    @Column(name="topic", nullable = false)
-    private String topic;
-
-    @Column(name="contents", nullable = false)
-    private String contents;
-
+    
     @Column(name="username", nullable=false, updatable = false)
     private String username;
 
