@@ -7,6 +7,7 @@
     <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
     <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
 </div>
+<div th:include="layout/generalLayout :: scripts"></div>
     <div id="fullscreen_bg" class="fullscreen_bg"/>
 
     <header>
