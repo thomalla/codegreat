@@ -9,12 +9,17 @@
     <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
     <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
 </div>
+<div th:include="layout/generalLayout :: scripts"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 <header>
 
     <link href="/css/boxstyle.css" rel="stylesheet">
 
     <div class="container">
+        <div th:if="${currentUser==null}" >
+            <hr/>
+            <hr/>
+        </div>
         <div th:if="${currentUser!=null}" class="row margintop">
             <div class="col-sm-8">
             </div>
