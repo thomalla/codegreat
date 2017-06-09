@@ -15,6 +15,10 @@
     <link href="/css/boxstyle.css" rel="stylesheet">
 
     <div class="container">
+        <div th:if="${currentUser==null}" >
+            <hr/>
+            <hr/>
+        </div>
         <div th:if="${currentUser!=null}" class="row margintop">
             <div class="col-sm-8">
             </div>
