@@ -17,6 +17,7 @@ public class Path
         public static final String QUESTION = "/question";
         public static final String QUESTIONS_NEWEST = "/questions/newest";
         public static final String ADD_QUESTION = "/addQuestion";
+        public static final String ALLMODULES = "/allModules";
     }
 
     public static class Template
@@ -35,6 +36,7 @@ public class Path
         public static final String ADD_QUESTION = "html/addQuestion.html";
         public static final String QUESTIONS_NEWEST = "html/questionsNewest.html";
         public static final String QUESTION_POSTED = "html/questionPosted.html";
+        public static final String ALLMODULES = "html/allModules.html";
     }
 
     public static class Email
