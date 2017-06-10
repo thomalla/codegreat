@@ -7,7 +7,6 @@ public class Path
         public static final String INDEX = "/";
         public static final String REGISTER = "/register";
         public static final String LOGIN = "/login";
-        public static final String LOGOUT = "/logout";
         public static final String FORGOTPASSWORD = "/forgotPassword";
         public static final String RESETPASSWORD = "/resetPassword";
         public static final String ACCOUNTACTIVATION= "/accountActivation";
@@ -18,6 +17,10 @@ public class Path
         public static final String QUESTIONS_NEWEST = "/questions/newest";
         public static final String ADD_QUESTION = "/addQuestion";
         public static final String ALLMODULES = "/allModules";
+        public static final String ACCOUNTEDITION = "/accountEdition";
+        public static final String DELETEACCOUNTCONFIRMATION="/deleteAccountConfirmation";
+        public static final String DELETEACCOUNT="/deleteAccount";
+
     }
 
     public static class Template
@@ -37,6 +40,12 @@ public class Path
         public static final String QUESTIONS_NEWEST = "html/questionsNewest.html";
         public static final String QUESTION_POSTED = "html/questionPosted.html";
         public static final String ALLMODULES = "html/allModules.html";
+        public static final String ACCOUNTEDITION = "html/accountEdition.html";
+        public static final String DELETEACCOUNTCONFIRMATION = "html/deleteAccountConfirmation.html";
+        public static final String DELETEACCOUNT="html/deleteAccount.html";
+
+
+
     }
 
     public static class Email

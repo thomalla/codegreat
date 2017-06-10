@@ -102,4 +102,12 @@ public class UserServiceImpl implements UserService
         }
         return false;
     }
+
+    @Override
+    public void deleteUser(long id)
+    {
+        userRepository.deleteUserById(id);
+    }
+
+
 }

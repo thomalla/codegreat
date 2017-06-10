@@ -20,4 +20,6 @@ public interface UserService
     User register(RegisterForm form);
 
     boolean activateAccount(String token);
+
+    void deleteUser(long id);
 }
