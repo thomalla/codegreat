@@ -3,6 +3,7 @@ package pk.project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -121,4 +122,43 @@ public class UserController
         userService.deleteUser(currentUserControllerAdvice.getCurrentUser(authentication).getId());
         return Template.DELETEACCOUNT;
     }
+
+    @RequestMapping(value = Web.CHANGEPASSWORD, method = RequestMethod.GET)
+    public String servePasswordChangePage()
+    {
+        return Template.CHANGEPASSWORD;
+    }
+
+    @RequestMapping(value = Web.CHANGEPASSWORD, method = RequestMethod.POST)
+    public String changePassword(@RequestParam String currentPassword,@RequestParam String password,@RequestParam String passwordRepeated, Authentication authentication, Model model)
+    {
+        List<String> errorList=new ArrayList<>();
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        CurrentUser currentUser=(CurrentUser)authentication.getPrincipal();
+
+        if(!encoder.matches(currentPassword,currentUser.getUser().getPasswordHash()))
+        {
+            errorList.add("Twoje aktualne hasło nie jest prawidłowe");
+        }
+        if(!password.equals(passwordRepeated))
+        {
+            errorList.add("Wprowadzone hasła nie zgadzają się");
+        }
+        else if(password.length()<8||password.length()>30)
+        {
+            errorList.add("Nowe hasło musi zawierać od 8 do 30 znaków");
+        }
+        model.addAttribute("errors",errorList);
+        if(errorList.isEmpty())
+        {
+            userService.changePassword(encoder.encode(password), authentication);
+            return Template.CHANGEPASSWORDSUCCESS;
+        }
+        return Template.CHANGEPASSWORDFAILED;
+
+    }
+
+
+
+
 }

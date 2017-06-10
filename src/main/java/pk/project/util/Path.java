@@ -20,6 +20,7 @@ public class Path
         public static final String ACCOUNTEDITION = "/accountEdition";
         public static final String DELETEACCOUNTCONFIRMATION="/deleteAccountConfirmation";
         public static final String DELETEACCOUNT="/deleteAccount";
+        public static final String CHANGEPASSWORD="/changePassword";
 
     }
 
@@ -43,6 +44,9 @@ public class Path
         public static final String ACCOUNTEDITION = "html/accountEdition.html";
         public static final String DELETEACCOUNTCONFIRMATION = "html/deleteAccountConfirmation.html";
         public static final String DELETEACCOUNT="html/deleteAccount.html";
+        public static final String CHANGEPASSWORD="html/changePassword.html";
+        public static final String CHANGEPASSWORDSUCCESS="html/changePasswordSuccess.html";
+        public static final String CHANGEPASSWORDFAILED="html/changePasswordFailed.html";
 
 
 
