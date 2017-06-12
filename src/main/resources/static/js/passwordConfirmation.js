@@ -1,4 +1,4 @@
-function registerValidation()
+function confirmPassword()
 {
     var pass1 = document.getElementById("password").value;
     var pass2 = document.getElementById("passwordRepeated").value;

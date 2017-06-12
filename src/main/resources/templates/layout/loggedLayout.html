@@ -48,7 +48,7 @@
                             <button class="btn btn-link btn-logout dropdown-toggle" type="button" data-toggle="dropdown"><span th:text="${currentUser.getUser().getLogin()}" ></span>
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Edycja konta</a></li>
+                                <li><a href="/accountEdition">Edycja konta</a></li>
                                 <li><a href="#">Statystyki</a></li>
                                 <li>
                                     <form action="/logout" method="post">
