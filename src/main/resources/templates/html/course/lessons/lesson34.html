@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
+
 <body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="/css/modulesText.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/1'">Przejdź do testu</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+
+</header>
 
 </body>
-</html>

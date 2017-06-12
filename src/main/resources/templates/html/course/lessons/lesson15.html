@@ -1,10 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
+
 <body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="/css/modulesText.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+                                <H2 CLASS="western"><A NAME="_Toc483499945"></A>LEKCJA 5: STAŁE</H2>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W poprzednich
+                                    lekcjach poznałeś zagadnienie operacji na zmiennych. Wiesz już w
+                                    jaki sposób je modyfikować. Czy zastanawiałeś się może, czy są
+                                    takie zmienne, których modyfikować nie można? Czy może
+                                    niezależnie od rodzaju zmiennych, każdą zmienną można  poddać
+                                    modyfikacji? Śpieszymy się by odpowiedzieć Ci na te pytania. Otóż
+                                    w C++ istnieją zmienne, których wartości po zainicjowaniu nie
+                                    możemy zmieniać, tymi zmiennymi są stałe. W momencie tworzenia
+                                    stałej, musimy jej nadać wartość początkową( zainicjalizować)
+                                    i nie mamy możliwości by tą wartość, w trakcie działania
+                                    programu, zmieniać. Stałe mogą być zmiennymi każdego z typów
+                                    udostępnianych przez C++, może to być zarówno liczba, jak i
+                                    napis, czy znak.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>DEFINIOWANIE
+                                    STAŁYCH:</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Stałe w C++
+                                    możemy deklarować na 2 sposoby:</B></P>
+                                <OL>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><B>Za pomocą dyrektywy #define
+                                        ( przestarzała wersja), brak konieczności podawania typu zmiennej.
+                                    </B>
+                                    </P>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><B>Za pomocą słowa kluczowego
+                                    </B><I><B>const</B></I></P>
+                                </OL>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#define</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#6f008a"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">stala1</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    12 </FONT></FONT></FONT><FONT COLOR="#00b050"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    pierwszy sposób, pamiętaj, że instrukcja nie kończy się ; </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    main()</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#00b050"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    drugi sposób, oba sposoby są poprawne</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">const</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+stala2 = 12;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">const</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+stala3 (12);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">cout
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#6f008a"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">stala1</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    stala2 </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    stala3 </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Kiedy moglibyśmy
+                                    użyć stałych? Kiedy definiujemy jakąś stałą matematyczną np.
+                                    wartość przyspieszenia ziemskiego, kiedy mamy pewność, że dana
+                                    zmienna przez cały czas trwania programu nie będzie ulegała
+                                    zmianie. Korzystanie ze stałych  umożliwia kompilatorowi
+                                    wygenerowanie bardziej wydajnego kodu, dlatego jeśli masz możliwość
+                                    to używaj stałych w swoich programach.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_9832d84b.png" NAME="graphics18" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">	Dzięki tej lekcji:
+                                </P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0.11in">wiesz czym są stałe i umiesz
+                                        się nimi posługiwać</P>
+                                </UL>
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/5'">Przejdź do testu</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+
+</header>
 
 </body>
-</html>

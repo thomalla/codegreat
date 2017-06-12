@@ -1,10 +1,641 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
+
 <body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="/css/modulesText.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+
+                                <H2 CLASS="western"><A NAME="_Toc483499943"></A>LEKCJA 3: ZMIENNE</H2>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Czy wiesz czym są
+                                    zmienne? Być może to pojęcie kojarzy Ci się z matematyki. Zmienną
+                                    w programowaniu nazywamy obszar w pamięci, który przechowuje dane
+                                    różnego typu np. liczby, ciągi znaków. Każda zmienna ma swoją
+                                    na swoją nazwę, unikalną, tak by można było ją odróżnić od
+                                    innych. Każda zmienna reprezentuje również typ zmiennej tzn.
+                                    określenie czy jest liczbą, znakiem, tekstem.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>KONWENCJA
+                                    NAZEWNICTWA ZMIENNYCH</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Tworząc zmienne i
+                                    nazywając je trzeba przestrzegać jasno określonych reguł:</P>
+                                <UL>
+                                    <LI><P CLASS="western" STYLE="margin-bottom: 0in">Nazwa zmiennej
+                                        może składać się wyłącznie z liter, cyfr i znaków
+                                        podkreślenia.</P>
+                                    <LI><P CLASS="western" STYLE="margin-bottom: 0in">Pierwszym znakiem
+                                        nazwy zmiennej musi być wielka lub mała litera.</P>
+                                    <LI><P CLASS="western" STYLE="margin-bottom: 0in">Nie można używać
+                                        liter z ogonkami i akcentami.</P>
+                                    <LI><P CLASS="western" STYLE="margin-bottom: 0in">Nie można używać
+                                        spacji.</P>
+                                </UL>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Pamiętaj!</B> W
+                                    języki C++ rozpoznawalna jest wielkość liter, zatem zmienna:
+                                    samochod a Samochod to dwie, różne zmienne.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W przypadku
+                                    zmiennych składających się z więcej niż jednego wyrażenia
+                                    większość programistów tworzy je za pomocą tzw. camelCase. Jest
+                                    to system nazewnictwa określający, że wszystkie wyrażenia piszemy
+                                    razem, a każde nowe zaczynamy z dużej litery( pierwsze wyrażenie
+                                    małą literą). Na przykład: wagaZwierzecia, obecnaPoraRoku.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>TYPY ZMIENNYCH </B>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wiemy już jak
+                                    nadawać nazwy zmiennych i jakie zasady należy zachować. Zajmiemy
+                                    się teraz określaniem typu zmiennej. Zmienne mogą być różnego
+                                    typu: liczbowe, tekstowe... konieczne jest poinformowanie komputera z
+                                    jakiego rodzaju zmienną mamy do czynienia. W C++ najpopularniejszymi
+                                    zmiennymi są:</P>
+                                <TABLE WIDTH=607 CELLPADDING=7 CELLSPACING=0>
+                                    <COL WIDTH=77>
+                                    <COL WIDTH=43>
+                                    <COL WIDTH=184>
+                                    <COL WIDTH=244>
+                                    <TR>
+                                        <TD WIDTH=77 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER><B>Nazwa typu</B></P>
+                                        </TD>
+                                        <TD WIDTH=43 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER><B>Ilość<BR>Bajtów</B></P>
+                                        </TD>
+                                        <TD WIDTH=184 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER><B>Zakres wartości</B></P>
+                                        </TD>
+                                        <TD WIDTH=244 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER><B>Opis</B></P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>bool</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>1</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER><B>false</B>&nbsp;lub&nbsp;<B>true</B></P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Typ pozwalający przechowywać <BR>w zmiennej
+                                                wartości logiczne oznaczające prawdę (true) lub fałsz (false)</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>char</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>1</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od -128 do 127</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Znak</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>unsigned char</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>1</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od 0 do 255</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Unsigned- oznacza, że dana wartość nie może
+                                                być ujemna</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>short</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>2</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od -32'768 do 32'767</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Wskazówka dla kompilatora, żeby użył mniej
+                                                pamięci. Jeśli nie napiszemy przy short o jaki typ zmiennej nam
+                                                chodzi, kompilator automatycznie przyjmie wartość int.</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>unsigned short</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>2</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od 0 do 65'535</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Dana wartość nie może być ujemna.</P>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD WIDTH=77 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>int</P>
+                                        </TD>
+                                        <TD WIDTH=43 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>4</P>
+                                        </TD>
+                                        <TD WIDTH=184 VALIGN=TOP STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od -2'147'483'648 do 2'147'483'647</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Liczba całkowita</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>unsigned int</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>4</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od 0 do 4'294'967'295</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Dodatnia liczba całkowita</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>long</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>4</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od -2'147'483'648 do 2'147'483'647</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Wskazówka dla kompilatora, żeby użył więcej
+                                                pamięci. Jeśli nie napiszemy przy long o jaki typ zmiennej nam
+                                                chodzi, kompilator automatycznie przyjmie wartość int.</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>unsigned long</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>4</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od 0 do 4'294'967'295</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Dana wartość nie może być ujemna</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>long long</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>8</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od -9'223'372'036'854'775'808 do
+                                                9'223'372'036'854'775'807</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western"><BR>
+                                            </P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>unsigned long long</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>8</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>od 0 do 18'446'744'073'709'551'615</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western"><BR>
+                                            </P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>float</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>4</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>3.4E +/- 38 (7 cyfr)</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Liczba zmiennoprzecinkowa. Pojedyncza precyzja
+                                                - 7-8 cyfr znaczących</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>double</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>8</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>1.7E +/- 308 (15 cyfr)</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Liczba zmiennoprzecinkowa. Podwójna precyzja -
+                                                8-16 cyfr znaczących</P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=77 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>long double</P>
+                                        </TD>
+                                        <TD WIDTH=43 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>8</P>
+                                        </TD>
+                                        <TD WIDTH=184 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=CENTER>1.7E +/- 308 (15 cyfr)</P>
+                                        </TD>
+                                        <TD WIDTH=244 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western">Liczba zmiennoprzecinkowa. Rozszerzona precyzja
+                                                - 19-20 cyfr znaczących</P>
+                                        </TD>
+                                    </TR>
+                                </TABLE>
+                                <P ALIGN=LEFT STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P ALIGN=LEFT STYLE="margin-bottom: 0.11in"><B>TWORZENIE NOWEJ
+                                    ZMIENNEJ</B></P>
+                                <P STYLE="margin-bottom: 0.11in">Tworząc nową zmienną powinieneś
+                                    zadać sobie pytanie: jakiego typu dane mam zamiar w niej
+                                    przechowywać? I ile miejsca w pamięci na nią potrzebuję? Np.
+                                    jeśli potrzebujesz zmiennej, która będzie przechowywać informacje
+                                    o tym czy dana liczba jest parzysta, to nie wykorzystasz typu int- bo
+                                    to nie liczba będzie przechowywana, tylko bool- wskazujący w
+                                    przypadku wartości true- że jest parzysta, bądź false- w
+                                    przypadku liczby nieparzystej.
+                                </P>
+                                <P STYLE="margin-bottom: 0.11in">Gdy będziesz chciał przechować
+                                    zmienną cena, to skorzystasz z float. Natomiast, gdy będziesz
+                                    chciał przechować zmienną prawdopodobieństwo, która będzie
+                                    zawierać 12 cyfr za przecinkiem- wykorzystasz zmienną double.
+                                </P>
+                                <P STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P STYLE="margin-bottom: 0.11in"><B>DEKLAROWANIE I DEFINIOWANIE
+                                    ZMIENNYCH</B></P>
+                                <P STYLE="margin-bottom: 0.11in">Chcemy, byś znał i umiał
+                                    rozróżniać te dwa pojęcia. Są one ściśle związane z
+                                    tworzeniem zmiennych.
+                                </P>
+                                <P STYLE="margin-bottom: 0.11in"><B>Deklaracja zmiennych wygląda
+                                    następująco:</B></P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">typ_zmiennej
+                                    nazwa_zmiennej; </FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W tym przypadku
+                                    deklarujemy zmienną, nie przypisujemy jej żadnej wartości. Należy
+                                    jednak pamiętać, że dopóki nie przypiszemy wartości do tej
+                                    zmiennej- będzie ona przechowywać przypadkową wartość. Aby
+                                    przypisać wartość zadeklarowanej zmiennej(inicjacja):
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">	<FONT COLOR="#c00000"><FONT FACE="Consolas, serif">nazwa_zmiennej=
+                                    wartość; </FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Definicja
+                                    zmiennych wygląda następująco:</B></P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">typ_zmiennej
+                                    nazwa_zmiennej= wartość; lub</FONT></FONT></P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">typ_zmiennej
+                                    nazwa_zmiennej(wartość);</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W przypadku
+                                    definiowania zmiennych od razu jest przypisywana im wartość. Oba
+                                    sposoby definiowania zmiennych są prawidłowe.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>UWAGA! </B>Jeśli
+                                    chcesz zdefiniować kilka zmiennych tego samego typu, możesz to
+                                    zrobić w jednym wierszu, oddzielając przecinkami.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">np<FONT FACE="Consolas, serif">:
+                                </FONT><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">int a(3),
+                                    b(4), c(5);</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>PAMIĘĆ A
+                                    ZMIENNE</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Kiedy w naszym
+                                    kodzie programu znajduje się definicja/ deklaracja zmiennej.
+                                    Komputer dostaje informację, że chcemy wykorzystać jakąś część
+                                    pamięci( typ wskazuje ile tej pamięci potrzebujemy) dla naszej
+                                    zmiennej. Naszą zmienną w pamięci możemy porównać do bloczka, w
+                                    którym znajduje się zawartość tej zmiennej, a bloczek ten
+                                    określony jest przez jej nazwę.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>PRZYKŁADY
+                                    ZMIENNYCH:  </B>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">bool
+                                    czyParzysta(true);</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN LANG="en-US">bool
+czyPada=false;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN LANG="en-US">int
+liczba= -1;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN LANG="en-US">unsigned
+int liczba= 123;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">float
+                                    cena= 12.34;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">float
+                                    temperatura= -7.5;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">double
+                                    gęstość= 1,3452235;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">char
+                                    znak='a';</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>ŁAŃCUCHY ZNAKÓW</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 11pt">Składnia
+                                    definicji znaków jest trudniejsza niż wcześniej wspomnianych przez
+                                    nas zmiennych. Na początku musimy poinformować kompilator, że w
+                                    naszym programie będą łańcuchy: </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"> <FONT FACE="Courier New, serif"><FONT SIZE=2><FONT COLOR="#333333"><FONT FACE="Consolas, serif"><FONT SIZE=3><SPAN STYLE="background: #ffffff">#include
+&lt;string&gt;</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 11pt">Wartość
+                                    zmiennej łańcuchowej powinna znajdować się w podwójnym
+                                    cudzysłowie &quot; &quot; . Pamiętaj, że zmienne typu char pisze
+                                    się w apostrofach ' ' , bądź uważny, nie pomyl tego. </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 11pt">Przykład
+                                    zmiennej przechowującej łańcuch znaków:</FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">string
+                                    adres=&quot; Adama Mickiewicza 10 31-619 Kraków&quot;;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 11pt">string
+                                    adres(&quot; Adama Mickiewicza 10 31-619 Kraków&quot;);</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>WYŚWIETLANIE
+                                    WARTOŚCI ZMIENNEJ NA EKRANIE</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W programie hello
+                                    world wyświetlaliśmy łańcuch znaków. Czy da się wyświetlić
+                                    wartość zmiennej? <SPAN LANG="en-US">Ależ oczywiście! </SPAN>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;string&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wiek(21);</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#2b91af"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">string</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    imie = </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Urszula&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Czesc,
+                                    mam na imie: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    imie </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    i mam &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wiek </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    lat&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Co wyświetli się
+                                    na konsoli? Jak myślisz?
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wynik działania
+                                    programu:
+                                </P>
+                                <P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_ce83e8bb.png" NAME="Obraz 31" ALIGN=BOTTOM WIDTH=437 HEIGHT=187 BORDER=0></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0.11in">Jak
+                                    widzisz wyświetla się wartość zmiennych, które występują w
+                                    poleceniu. Gdybyś chciał wyświetlić wartość zmiennej typu bool,
+                                    na ekranie pojawi się 1- reprezentująca wartość true, bądź 0
+                                    dla false.</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0.11in"><B>REFERENCJE
+                                    DO ZMIENNYCH</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Na początku tej
+                                    lekcji porównaliśmy naszą zmienną do bloczka, przechowującego
+                                    jakąś wartość, opisanego nazwą. W C++ możemy uzyskać prosty
+                                    dostęp do tego samego bloczka, ale opisanego inną nazwą. Służą
+                                    do tego referencje, które nadają różne nazwy tym samym zmiennym.
+                                    Wyobraźmy sobie sytuację mamy zmienną: int wiekUzytkownika(16);
+                                    okazuje się, że  zmienna wiekLeszka również ma przyjmować
+                                    wartość 16. Zatem dla oszczędzenia zajmowanego miejsca w pamięci
+                                    stworzymy referencję do zmiennej wiekUzytkownika:</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;string&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    main()</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wiekUzytkownika(16); </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    definicja zmiennej</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    &amp; wiekLeszka(wiekUzytkownika); </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    definicja referencji &amp;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Wiek
+                                    użytkownika: &quot;</FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wiekUzytkownika </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    wiek Leszka: &quot;</FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wiekLeszka </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wartość 16 w
+                                    pamięci widnieje teraz pod dwiema nazwami: wiekUzytkownika oraz
+                                    wiekLeszka. Gdy którąkolwiek z tych zmiennych zmienimy: zwiększymy
+                                    jej wartość, zmniejszymy bądź całkiem zmienimy. To wpływamy na
+                                    ten bloczek w pamięci zatem zmienia się wartość właśnie w tym
+                                    bloczku= zmieniając wartość jednej zmiennej, zmieniamy wartości
+                                    zmiennym, których nazwy również opisują ten bloczek.  A wynikiem
+                                    powyższego programu będzie:
+                                </P>
+                                <P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0in"><IMG SRC="/img/modul1/MODU_1_html_1ad8eb0d.png" NAME="Obraz 34" ALIGN=BOTTOM WIDTH=437 HEIGHT=199 BORDER=0></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in"><B>Pamiętaj!</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Referencja musi mieć
+                                    ten sam typ, co zmienna, do której się odnosi. To znaczy, że
+                                    referencja&nbsp;int&amp;&nbsp;może odnosić się tylko do zmiennych
+                                    typu&nbsp;int, a&nbsp;string&amp;&nbsp;— do zmiennych
+                                    typu&nbsp;string&nbsp;itd.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W celu przećwiczenia
+                                    informacji poznanych na tej lekcji, wykonaj poniższe zadanie
+                                    programistyczne.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Napisz program,
+                                    który wyświetli na ekranie podstawowe informacje o Tobie, według
+                                    wzoru:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Jan Nowak, lat 21
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Urodziny:  28 grudnia
+                                    1995 roku
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Urodzony w: Warszawie</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Płeć: M</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Imię matki: Janina</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Wzrost: 1.86m</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Waga: 80kg</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Student: 1 ( jako true)</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"> <IMG SRC="/img/modul1/MODU_1_html_9832d84b.png" NAME="graphics5" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in">Dzięki
+                                    tej lekcji:</P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0in">Wiesz czym jest zmienna, umiesz ją
+                                        zadeklarować oraz zdefiniować.</P>
+                                    <LI><P STYLE="margin-bottom: 0in">posiadasz informacje o typach
+                                        zmiennych</P>
+                                    <LI><P STYLE="margin-bottom: 0in">znasz konwencję nazewnictwa
+                                        zmiennych</P>
+                                    <LI><P STYLE="margin-bottom: 0in">potrafisz wyświetlać zmienne na
+                                        ekranie</P>
+                                    <LI><P STYLE="margin-bottom: 0in">wiesz czym są referencje i umiesz
+                                        je użyć</P>
+                                </UL>
+
+
+                            </div>
+                        </div>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/3'">Przejdź do testu</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+
+</header>
 
 </body>
-</html>

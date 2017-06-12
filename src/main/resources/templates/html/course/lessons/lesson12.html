@@ -17,6 +17,20 @@
     <link href="/css/modulesText.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/sb.css" rel="stylesheet">
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+
     <div class="container">
         <hr/>
         <hr/>
@@ -452,7 +466,7 @@ Hello World! </SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Conso
             </div>
         </div>
         <!-- /.row -->
-
+    </div>
     </div>
 
 </header>
