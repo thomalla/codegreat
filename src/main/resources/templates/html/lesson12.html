@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+    <div class="container">
+        <hr/>
+        <hr/>
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Kurs języka C++
+                    <small>z nami możesz więcej</small>
+                </h1>
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <div class="box">
+                    <div class ="box-content">
+                        <h2>LEKCJA 2: PIERWSZY PROGRAM W C++</h2>
+                        <p>W poprzedniej lekcji poznałeś terminologię związaną z programowaniem i ogólny zarys czym ono tak na prawdę jest. W tej lekcji, stworzysz swój pierwszy program oraz poznasz dużo nowych zagadnień, które są konieczne do powiedzenia w celu zrozumienia podstaw programowania. </p>
+                        <strong>TWORZENIE PROJEKTU W VISUAL C++</strong>
+
+                        <p>Jeśli jeszcze nie zainstalowałeś środowiska programistycznego, zrób to teraz. Pokażemy Ci krok po kroku jak stworzyć nowy projekt. </p>
+                        <p>1. Po uruchomieniu Visual C++ klijnij kolejno Plik/Nowy/ Projekt. Uzyskasz poniższe okno:</p>
+
+                        <img align="center" src="/img/course121.jpg"  />
+
+
+                        <p>Okno tworzenia projektu w środowisku Visual C++ Community</p>
+
+                        <p>2.	Kliknij na Aplikację konsolową, oraz wpisz wybraną przez siebie nazwę danego projektu, następnie kliknij OK, w wyniku czego pojawi się nowe okno:</p>
+
+                        <img align="center" src="/img/course122.jpg"  />
+                        <p>W tym kroku kliknij przycisk Dalej.</p>
+                        <p>3.	Po kliknięciu dalej uzyskasz nowe okno, zaznacz takie opcje, jakie pokazuje poniższa grafika:</p>
+                        <img align="center" src="/img/course123.jpg"  />
+                        <p>Następnie kliknij zakończ. Twój pierwszy projekt został stworzony! </p>
+                        <p>4.   Kolejnym krokiem jest dodanie pliku źródłowego do naszego projektu. Prawym przyciskiem myszy kliknij na folder pliki źródłowe , a następnie kolejno Dodaj/Nowy Element:</p>
+                        <img align="center" src="/img/course124.jpg"  />
+                        <p>5.	Wybieramy plik C++ i nadajemy mu nazwę, w tym kroku sugerujemy Ci nazwę main, dlaczego? O tym za chwilę. </p>
+                        <img align="center" src="/img/course125.jpg"  />
+                        <p>6.	To wszystkie kroki, które  umożliwią Ci rozpoczęcie pisania pierwszego programu w C++ </p>
+                        <strong>PROGRAMY KONSOLOWE </strong>
+                        <p>Jak zapewne zauważyłeś w procesie tworzenia projektu zaznaczyliśmy opcję aplikacji konsolowej. Dlaczego? Zapewne kiedy myślisz o programowaniu, masz w głowie aplikacje, z których korzystasz na co dzień. Takie aplikacje są aplikacjami z graficznym interfejsem użytkownika( GUI). Rozpoczynając przygodę z programowaniem nie tworzy się aplikacji z GUI, gdyż są one skomplikowane i wymagają dużych umiejętności programistycznych. Rozpoczynając naukę programowania piszemy programy konsolowe. Choć na pierwszy rzut oka są one niezbyt atrakcyjne wizualnie, gdyż składają się wyłącznie z czarnego tła z białymi literami, tworzenie ich jest znacznie łatwiejsze niż programów z GUI. </p>
+                        <img align="center" src="/img/course126.jpg"  />
+                        <p>Przykład programu konsolowego</p>
+                        <strong>WITAJ W ŚWIECIE! </strong>
+                        <p>Hello world! to wyrażenie znane każdemu programiście na świecie. Przyjęło się, że program Hello world realizuje funkcję demonstracyjną danego języka programowania. Tymczasem, my zajmiemy się Twoim pierwszym programem- Hello world! w języku C++. </p>
+                        <img align="center" src="/img/course127.jpg"  />
+                        <p>Hello world w C++ </p>
+                        <p>Powyżej przedstawiamy Ci gotowy program Hello world, przepisz go do utworzonego przez Ciebie projektu.  Uruchom go poprzez wciśnięcie :"Lokalny debuger Windows" . W tym momencie Twój program będzie kompilowany. Aby uzyskać okno konsoli wciśnij Ctr+F5. Powinieneś otrzymać poniższy wynik:</p>
+                        <img align="center" src="/img/course128.jpg"  />
+                        <p>Co oznaczają poszczególne elementy programu? </p>
+                        <strong>1.KOMENTARZE </strong>
+                       <p> Każdy programista może w programie umieszczać komentarze, które pozwolą mu na swobodniejsze poruszanie się po kodzie, który napisał. Wyobraź sobie program, który ma milion linii kodu. W tym przypadku komentarze są bardzo pomocne dla każdego programisty, mogą np. tłumaczyć co w danym miejscu się dzieje, jaki algorytm zastosowano, mogą np. wskazywać na miejsce, w którym coś trzeba poprawić, dodać. Komentarzy możesz również użyć w przypadku, gdy chcesz ukryć jakiś fragment kodu przed kompilatorem. Kompilator " nie zagląda do komentarzy" możesz tam napisać co tylko chcesz. Istnieją dwa rodzaje komentarzy:komentarz liniowy //, który ciągnie się do końca linii,
+                        - komentarz blokowy /* */ , wewnątrz którego można zawrzeć tekst składający 					się z wielu linii.
+                           Jak widzisz w programie zastosowaliśmy oba rodzaje komentarzy. Wiedząc już w jaki sposób działają komentarze, powinieneś rozumieć dlaczego na konsoli nie wyświetliły się informacje o autorze oraz zdanie: "to jest mój pierwszy program napisany w C++."</p>
+                        <strong>2. DYREKTYWA #INCLUDE</strong>
+                        <p>#include jest to tzw. dyrektywa preprocesora. Dołącza ona  wskazany plik źródłowy w miejscu jej wystąpienia. Nazwę pliku, który ma być dołączony można podać w nawiasach ostrych, bądź w cudzysłowie.Za pomocą dyrektywy #include możemy dołączyć biblioteki( narzędzia, które umożliwiają nam uzyskanie szeregu funkcji, które możemy wykorzystać w programie np. wyświetlenie czegoś w konsoli), które nas interesują.  Jeśli jesteś zainteresowany poznaniem innych bibliotek niż ta, którą użyliśmy w naszym programie, polecamy odwiedzić LINK_BIBLIOTEKI. Przejdźmy do wykorzystanej przez nas biblioteki: iostream. Jest to standardowa biblioteka obsługująca operacje wejścia i wyjścia( ang. Input/Output stream). Dzięki tej bibliotece możemy za pomocą wyrażenia cout wypisać na konsoli napis Hello world. W dalszej części kursu, na pewno jeszcze będziemy korzystać z innych bibliotek, zatem spokojnie, twoja wiedza zdobyta w tym kursie, nie będzie się ograniczać tylko do tej jednej. </p>
+                        <strong>3.INSTRUKCJA USING NAMESPACE</strong>
+                        <p>Każda biblioteka, którą dołączymy do naszego programu ma swoje funkcje. Może się zdarzyć taka sytuacja, że biblioteki bądź pliki, które dołączymy będą miały tą samą nazwę funkcji. W takim przypadku kompilator nie będzie wiedział, o którą funkcję nam chodzi ( z której biblioteki), bo przecież jest ona w obu. Rozwiązaniem tego problemu jest tzw. użycie przestrzeni nazw. Wiersz kodu using namespace std; oznacza, że zamierzamy używać przestrzeni nazw o nazwie std. Jest to najbardziej popularna przestrzeń nazw w języku C++. Możemy również tworzyć własne przestrzenie nazw, ale o tym dowiesz się w przyszłości. </p>
+                        <p>Istnieje alternatywne rozwiązanie do using namespace std, mianowicie można przed każdą funkcją wykorzystywaną z tej przestrzeni nazw pisać std::, zatem poprawnie dla strumienia wyjścia: std::cout. </p>
+                        <strong>4.FUNKCJA INT MAIN()</strong>
+                        <p>W tym miejscu znajduje się główna część programu. Funkcja main() jest najważniejszą częścią programu. Początek i koniec funkcji wyznaczają klamry {}. Funkcja ta wyznacza początek i koniec wykonywania napisanego przez nas programu. Czy to oznacza, że za każdym razem początek i koniec programu będzie wyznaczała funkcja main()? Czy program składa się głównie z funkcji main()? NIE! Zazwyczaj w funkcji main() wywołuje się inne funkcje napisane przez programisty. Ale my, na tym etapie będziemy wszystko pisać w funkcji main(). Przyjdzie taki moment w naszym kursie, że zdobyte przez Ciebie umiejętności pozwolą na wyjście poza funkcję main()</p>
+                        <strong>5. INSTRUKCJA COUT</strong>
+                        <p>Instrukcja cout służy do wypisywania napisów na ekranie. W naszym programie znajduje się linia w kodzie:</p>
+                        <p>cout <<" Hello World!";</p>
+                        <p><strong>PAMIĘTAJ!</strong> Każda instrukcja musi kończyć się ; Znak ten pozwala kompilatorowi odróżnić instrukcję od innych elementów kodu źródłowego</p>
+                        <strong>6. INSTRUKCJA RETURN</strong>
+                        <p>Wiele źródeł podaje, że przed klamrą kończącą program powinno podać się instrukcję return 0;  Funkcja, o której jest tutaj mowa zwraca wartość 0, która oznacza, że jej wykonywanie zakończyło się pomyślnie (wszystkie inne wartości oznaczają jakiś problem). Jednakże standard przewiduje, że instrukcja ta mimo nie napisania jej, wykona się automatycznie. Dlatego nasz program jej nie zawiera. </p>
+                        <strong>7. PROBLEM Z POLSKIMI ZNAKAMI</strong>
+                        <p>W systemie Windows jest problem z wyświetlaniem polskich znaków w konsoli, dlatego radzimy Ci nie używać ich w Twoim kodzie. </p>
+                        <p><strong>GRATULACJE!</strong> Udało Ci się napisać i uruchomić swój pierwszy program w języku C++. Trening czyni mistrza dlatego zachęcamy Cię do wykonania tych dodatkowych zadań. </p>
+                        <p>1. Jak myślisz, co pojawi się na konsoli po wykonaniu poniższego programu:</p>
+                        <img align="center" src="/img/course129.jpg"  />
+                        <p>Stwórz nowy projekt, skompiluj powyższy kod. Czy dobrze przewidziałeś wyniki działania programu? </p>
+                        <p>2. Napisz program, który wyświetli na konsoli:</p>
+                        <p>"Cześć, jestem "Twoje imię",
+                            Dzisiaj udało mi się napisać swój pierwszy program w języku C++.
+
+                            Czekam na więcej!
+                            "Twoje imię"
+                        "</p>
+
+
+
+                        <strong>Podsumowanie</strong>
+                        <p align="left">Dzięki tej lekcji:</p>
+                        <ul style="text-align: left">
+                            <li>
+                                umiesz stworzyć projekt w Visual C++
+                            </li>
+                            <li>
+                                umiesz napisać prosty program z wykorzystaniem strumienia wyjściowego
+                            </li>
+                            <li>
+                                znasz elementy budujące program
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn btn-default btn-md" onclick="window.location.href='/allModules'">Przejdź do testu</button>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+
+</header>
+
+</body>

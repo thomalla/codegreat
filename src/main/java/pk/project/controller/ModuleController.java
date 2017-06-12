@@ -14,4 +14,32 @@ public class ModuleController
     {
         return Path.Template.ALLMODULES;
     }
+
+    @RequestMapping(value = Path.Web.DESCRIPTION11)
+    public String serveDescription11Page()
+    {
+        return Path.Template.DESCRIPTION11;
+    }
+
+    @RequestMapping(value = Path.Web.LESSON11)
+    public String serveLesson11Page()
+    {
+        return Path.Template.LESSON11;
+    }
+
+    @RequestMapping(value = Path.Web.LESSON12)
+    public String serveLesson12Page()
+    {
+        return Path.Template.LESSON12;
+    }
+
+    @RequestMapping(value = Path.Web.TEST)
+    public String serveTestPage()
+    {
+        return Path.Template.TEST;
+    }
+
+
+
+
 }

@@ -18,6 +18,11 @@ public class Path
         public static final String QUESTIONS_NEWEST = "/questions/newest";
         public static final String ADD_QUESTION = "/addQuestion";
         public static final String ALLMODULES = "/allModules";
+        public static final String DESCRIPTION11 = "/description/1/1";
+        public static final String LESSON11 = "/lesson/1/1";
+        public static final String LESSON12 = "/lesson/1/2";
+        public static final String TEST = "/test";
+
     }
 
     public static class Template
@@ -37,6 +42,10 @@ public class Path
         public static final String QUESTIONS_NEWEST = "html/questionsNewest.html";
         public static final String QUESTION_POSTED = "html/questionPosted.html";
         public static final String ALLMODULES = "html/allModules.html";
+        public static final String DESCRIPTION11 = "html/description11.html";
+        public static final String LESSON11 = "html/lesson11.html";
+        public static final String LESSON12 = "html/lesson12.html";
+        public static final String TEST = "html/test.html";
     }
 
     public static class Email

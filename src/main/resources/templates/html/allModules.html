@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/generalLayout :: head(pageTitle='Kurs')">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
 
 <body>
-
-<div th:include="layout/loggedLayout :: toolbar"></div>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
 <div th:include="layout/generalLayout :: scripts"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
-
 <header>
 
-
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
     <div class="container">
+        <hr/>
+        <hr/>
 
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Kurs języka C++
+                    <small>z nami możesz więcej</small>
+                </h1>
 
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <div class="box">
+                    <div class ="box-content">
+                <h2>Witaj!</h2>
+                        <p>Cieszymy się, że postanowiłeś rozpocząć naukę programowania za pomocą naszego kursu. Stworzony przez nas kurs jest dedykowany ludziom, którzy chcą rozpocząć swoją przygodę z programowaniem. Korzystając z naszych doświadczeń oraz zdobytej wiedzy dołożymy wszelkich starań, byś jak najlepiej poznał zagadnienia związane z programowaniem w C++</p>
+                        <p>Przygotowany dla Ciebie kurs składa się z modułów, składających się z lekcji. Każda lekcja oraz moduł zakończone jest testem oraz wewnątrz każdego modułu możesz się zmierzyć z programistycznym zadaniem - określonym jako  zlecenie. Test obejmuje wiedzę zarówno teoretyczną i  praktyczną, natomiast dzięki zleceniu możesz zmierzyć się z programem, który będzie wymagał od Ciebie wykorzystania poznanych umiejętności programistycznych. Dzięki tym narzędziom możesz sprawdzić, czy zrozumiałeś wszystkie zagadnienia omawiane w danym module. Powodzenia!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
 
     </div>
+
 </header>
 
 </body>
