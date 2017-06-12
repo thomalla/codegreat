@@ -70,9 +70,27 @@ public class Path
         public static final String QUESTION_POSTED = "html/questionPosted.html";
         public static final String ALLMODULES = "html/allModules.html";
 
-        public static final String DESCRIPTION11 = "html/description11.html";
-        public static final String LESSON11 = "html/lesson11.html";
-        public static final String LESSON12 = "html/lesson12.html";
+        public static final String DESCRIPTION11 = "html/course/description1.html";
+        public static final String DESCRIPTION12 = "html/course/description2.html";
+        public static final String DESCRIPTION13 = "html/course/description3.html";
+
+        public static final String LESSON11 = "html/course/lessons/lesson11.html";
+        public static final String LESSON12 = "html/course/lessons/lesson12.html";
+        public static final String LESSON13 = "html/course/lessons/lesson13.html";
+        public static final String LESSON14 = "html/course/lessons/lesson14.html";
+        public static final String LESSON15 = "html/course/lessons/lesson15.html";
+        public static final String LESSON16 = "html/course/lessons/lesson16.html";
+
+        public static final String LESSON21 = "html/course/lessons/lesson21.html";
+        public static final String LESSON22 = "html/course/lessons/lesson22.html";
+        public static final String LESSON23 = "html/course/lessons/lesson23.html";
+        public static final String LESSON24 = "html/course/lessons/lesson24.html";
+
+        public static final String LESSON31 = "html/course/lessons/lesson31.html";
+        public static final String LESSON32 = "html/course/lessons/lesson32.html";
+        public static final String LESSON33 = "html/course/lessons/lesson33.html";
+        public static final String LESSON34 = "html/course/lessons/lesson34.html";
+        public static final String LESSON35 = "html/course/lessons/lesson35.html";
         public static final String TEST = "html/test.html";
 
         public static final String ACCOUNTEDITION = "html/accountEdition.html";
