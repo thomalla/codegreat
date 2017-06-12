@@ -19,8 +19,29 @@ public class Path
         public static final String ALLMODULES = "/allModules";
 
         public static final String DESCRIPTION11 = "/description/1/1";
+        public static final String DESCRIPTION12 = "/description/1/2";
+        public static final String DESCRIPTION13 = "/description/1/3";
+
+
         public static final String LESSON11 = "/lesson/1/1";
         public static final String LESSON12 = "/lesson/1/2";
+        public static final String LESSON13 = "/lesson/1/3";
+        public static final String LESSON14 = "/lesson/1/4";
+        public static final String LESSON15 = "/lesson/1/5";
+        public static final String LESSON16 = "/lesson/1/6";
+
+        public static final String LESSON21 = "/lesson/2/1";
+        public static final String LESSON22 = "/lesson/2/2";
+        public static final String LESSON23 = "/lesson/2/3";
+        public static final String LESSON24 = "/lesson/2/4";
+
+        public static final String LESSON31 = "/lesson/3/1";
+        public static final String LESSON32 = "/lesson/3/2";
+        public static final String LESSON33 = "/lesson/3/3";
+        public static final String LESSON34 = "/lesson/3/4";
+        public static final String LESSON35 = "/lesson/3/5";
+
+
         public static final String TEST = "/test";
 
         public static final String ACCOUNTEDITION = "/accountEdition";
