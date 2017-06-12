@@ -14,8 +14,24 @@
 <header>
 
     <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="/css/modulesText.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/sb.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+                <hr/>
+                <hr/>
+                <div class="container">
+                    <link href="/css/boxstyle.css" rel="stylesheet">
+                    <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+                </div>
+
+        </div>
+        <div th:case="true">
+
     <div class="container">
         <hr/>
         <hr/>
@@ -39,206 +55,160 @@
             <div class="col-md-9">
                 <div class="box">
                     <div class ="box-content">
-                <h2>Moduł nr1 LEKCJA 1 : Programowanie - tworzenie dzieła.</h2>
-                <p>Wiele ludzi ma bardzo
 
-                    mylne wyobrażenia
+                        <H2 CLASS="western"><A NAME="_Toc483499941"></A><A NAME="_Toc481760826"></A>
+                            LEKCJA 1:  Programowanie - tworzenie dzieła.
+                        </H2>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Wiele ludzi ma
+                            bardzo mylne wyobrażenia dotyczące programowania, jednocześnie
+                            przypisując mu łatkę zajęcia wyłącznie dla geniuszy . Nic
+                            bardziej mylnego! Programowanie nie jest trudne, to ciągłe
+                            rozwiązywanie zagadek, rozwijanie kreatywności i wyobraźni ale
+                            również żmudna, czasochłonna praca, wymagająca dokładności i
+                            skrupulatności. <IMG SRC="/img/modul1/MODU_1_html_e9e64c21.jpg" NAME="graphics1" ALIGN=LEFT HSPACE=12 WIDTH=364 HEIGHT=243 BORDER=0>
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>KTO MOŻE ZOSTAĆ
+                            PROGRAMISTĄ?</B> Każdy! Nie potrzeba do tego wyróżniających
+                            predyspozycji, wiadomo, &quot;talent&quot; może pomóc, ale ciężka
+                            i systematyczna praca to podstawa. Nie da się zostać programistą w
+                            jeden wieczór.</P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>CZYM JEST
+                            PROGRAMOWANIE?</B></P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Programowanie polega
+                            na rozwiązywaniu problemów poprzez tworzenie oprogramowania. Na
+                            przykład problemem do rozwiązania jest zastąpienie rozliczania
+                            zakupów za pomocą tradycyjnych, przyklejanych na produktach
+                            spożywczych cen, rozliczaniem na podstawie kodu kreskowego danego
+                            produktu. W tym wypadku zadaniem programisty jest stworzenie
+                            oprogramowania, które pozwoli na wykorzystywanie kodów kreskowych.
+                            Aby zrealizować to zadanie programista musi stworzyć odpowiedni
+                            algorytm, korzystając z ciągu instrukcji( pochodzących z danego
+                            języka programowania), które rozumiane są przez komputer.
+                            Programowanie  możemy określić jako stworzenie kodu źródłowego-
+                            tekstu zawierającego instrukcje z danego języka programowania,
+                            kreujące rozwiązanie danego problemu.  Na podstawie stworzonego
+                            przez programistę dzieła, <B>kompilator</B>, przekształci ten kod
+                            źródłowy w wykonywalną aplikację- program.
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Programowanie to
+                            tworzenie dzieła, tak zatytułowana jest ta lekcja.
+                            Najprawdopodobniej wiesz już dlaczego to porównanie jest trafne.
+                            Każdy stworzony przez programistę kod, jest jego dziełem.
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>CZYM JEST
+                            KOMPILATOR?</B></P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Jak już
+                            wspomnieliśmy kompilator umożliwia przekształcenie kodu źródłowego
+                            do kodu wynikowego, który możemy bezpośrednio uruchomić na
+                            komputerze( czynność nazywana kompilacją). W momencie kompilacji
+                            następuje test poprawność napisanego przez nas kodu, jeśli
+                            kompilator znajdzie chociaż jeden błąd- kończy swoje działanie,
+                            informując nas o błędzie. Oprócz informowania o błędzie
+                            kompilator może również w trakcie kompilacji wyświetlić
+                            ostrzeżenie - warning. Ostrzeżenie nie determinuje zatrzymania
+                            procesu kompilacji, mimo ostrzeżenia możemy uzyskać wykonywalną
+                            aplikację, jednakże nie powinno się bagatelizować ostrzeżeń-
+                            mogą one zwiastować możliwość wystąpienia błędu.
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>KILKA SŁÓW O
+                            JĘZYKU C++</B></P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Język C++ jest
+                            jednym z najbardziej popularnych języków programowania. Dlaczego?
+                            Jest językiem, który wykorzystywać można zarówno do pisania
+                            prostych programów jak i tych znacznie skomplikowanych. Jest to
+                            język dynamicznie rozwijający się. Jego początki przypisujemy na
+                            lata 80, a jego twórcą jest Bjarne Stroustrup.
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Język C++ posiada
+                            szereg zalet:</P>
+                        <UL>
+                            <LI><P STYLE="margin-bottom: 0.11in">jest nowoczesny, wyposażony w
+                                wiele mechanizmów, które można spotkać w innych językach
+                                programowania
+                            </P>
+                            <LI><P STYLE="margin-bottom: 0.11in">daje duże możliwości</P>
+                            <LI><P STYLE="margin-bottom: 0.11in">wiele języków ma składnię
+                                bardzo zbliżoną do C++, zatem poznanie tego języka, spowoduje, że
+                                w momencie, gdy będziesz chciał się nauczyć np. PHP, będzie Ci
+                                o wiele łatwiej.</P>
+                            <LI><P STYLE="margin-bottom: 0.11in">jest uniwersalny- posiada
+                                kompilatory zarówno dla systemów operacyjnych Windows jak i Linux</P>
+                        </UL>
+                        <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                        </P>
+                        <P STYLE="margin-bottom: 0.11in"><B>NARZĘDZIA POTRZEBNE DO
+                            PROGRAMOWANIA</B></P>
+                        <P STYLE="margin-bottom: 0.11in"><BR><BR>
+                        </P>
+                        <P STYLE="margin-bottom: 0.11in">Na podstawie uzyskanych przez Ciebie
+                            informacji z poprzednich akapitów, na pewno wiesz, że jednym z
+                            narzędzi potrzebnych do programowania jest kompilator, ale co
+                            jeszcze? Do programowania będziesz potrzebować:</P>
+                        <UL>
+                            <LI><P STYLE="margin-bottom: 0.11in">edytora tekstu do pisania kodu
+                                źródłowego. Edytorem tym może być zwykły notatnik z systemu
+                                Windows bądź Linux, ale zdecydowanie lepsze są programy, które
+                                posiadają funkcję m.in kolorowania składni. Szczerze mówiąc,
+                                żaden programista o zdrowych zmysłach nie użyłby do
+                                programowania notatnika :)
+                            </P>
+                            <LI><P STYLE="margin-bottom: 0.11in">Kompilatora, do przekształcania
+                                kodu źródłowego</P>
+                            <LI><P STYLE="margin-bottom: 0.11in">Debugera- programu
+                                diagnostycznego, który wyszuka błędy w kodzie</P>
+                        </UL>
+                        <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                        </P>
+                        <P STYLE="margin-bottom: 0.11in">Żeby uzyskać te trzy narzędzia:</P>
+                        <UL>
+                            <LI><P STYLE="margin-bottom: 0.11in">możesz zdobyć każdy osobno,
+                                jest to bardzo skomplikowane, ale możliwe( zwłaszcza w systemie
+                                Linux)</P>
+                            <LI><P STYLE="margin-bottom: 0.11in">możesz skorzystać z programu,
+                                który  zawiera w sobie je wszystkie. Programy te nazywamy
+                                zintegrowanym środowiskiem programistycznym</P>
+                        </UL>
+                        <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                        </P>
+                        <P STYLE="margin-bottom: 0.11in"><B>WYBÓR ŚRODOWISKA DO
+                            PROGRAMOWANIA</B></P>
+                        <UL>
+                            <LI><P STYLE="margin-bottom: 0.11in">Najbardziej popularnym
+                                środowiskiem programistycznym dla systemu Windows jest Microsoft
+                                Visual C++. Jego wersja Community jest bezpłatna:
+                                https://www.visualstudio.com/pl/vs/community/. Jest to środowisko
+                                tylko i wyłącznie dostępne dla systemu Windows</P>
+                            <LI><P STYLE="margin-bottom: 0.11in">Drugim środowiskiem, które
+                                chcemy Ci polecić jest Code::Blocks, jest to darmowe środowisko,
+                                dostępne dla Windowsa, Linuxa i Mac.
+                            </P>
+                        </UL>
+                        <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><B>Wybór
+                            należy do Ciebie. My wybraliśmy Microsoft Visual C++, dlatego
+                            zachęcamy Cię do również do tego wyboru.  Pamiętaj, że w każdej
+                            chwili możesz również wykorzystać kompilator udostępniony dla
+                            Ciebie na naszej platformie. </B>
+                        </P>
+                        <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR><BR><BR><BR>Dzięki
+                            tej lekcji:<IMG SRC="/img/modul1/MODU_1_html_9832d84b.png" NAME="Obraz 22" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0></P>
+                        <UL>
+                            <LI><P STYLE="margin-bottom: 0in">wiesz czym jest programowanie oraz
+                                kto może zostać programistą</P>
+                            <LI><P STYLE="margin-bottom: 0in">umiesz przedstawić proces
+                                programowania oraz opisać rolę kompilatora w nim uczestniczącego</P>
+                            <LI><P STYLE="margin-bottom: 0in">znasz genezę języka C++ i umiesz
+                                wymienić jego zalety
+                            </P>
+                        </UL>
 
-                    dotyczące programowania,
 
-                    jednocześnie przypisując
 
-                    mu łatkę zajęcia wyłącznie
-
-                    dla geniuszy . Nic bardziej
-
-                    mylnego! Programowanie
-
-                    nie jest trudne, to ciągłe
-
-                    rozwiązywanie zagadek,
-
-                    rozwijanie kreatywności i
-
-                    wyobraźni ale również
-
-                    żmudna, czasochłonna
-
-                    praca, wymagająca
-
-                    dokładności i
-
-                    skrupulatności.</p>
-                        <p><strong>KTO MOŻE ZOSTAĆ PROGRAMISTĄ?</strong> Każdy! Nie potrzeba do tego
-
-                    wyróżniających predyspozycji, wiadomo, &quot;talent&quot; może pomóc, ale ciężka i
-
-                    systematyczna praca to podstawa. Nie da się zostać programistą w jeden wieczór.</p>
-                        <strong>CZYM JEST PROGRAMOWANIE?</strong>
-                        <p>Programowanie polega na rozwiązywaniu problemów poprzez tworzenie
-
-                            oprogramowania. Na przykład problemem do rozwiązania jest zastąpienie rozliczania
-
-                            zakupów za pomocą tradycyjnych, przyklejanych na produktach spożywczych cen,
-
-                            rozliczaniem na podstawie kodu kreskowego danego produktu. W tym wypadku
-
-                            zadaniem programisty jest stworzenie oprogramowania, które pozwoli na
-
-                            wykorzystywanie kodów kreskowych. Aby zrealizować to zadanie programista musi
-
-                            stworzyć odpowiedni algorytm, korzystając z ciągu instrukcji( pochodzących z
-
-                            danego języka programowania), które rozumiane są przez komputer. Programowanie
-
-                            możemy określić jako stworzenie kodu źródłowego- tekstu zawierającego instrukcje z
-
-                            danego języka programowania, kreujące rozwiązanie danego problemu. Na
-
-                            podstawie stworzonego przez programistę dzieła, kompilator, przekształci ten kod
-
-                            źródłowy w wykonywalną aplikację- program.</p>
-                        <p>Programowanie to tworzenie dzieła, tak zatytułowana jest ta lekcja.
-
-                            Najprawdopodobniej wiesz już dlaczego to porównanie jest trafne. Każdy stworzony
-
-                            przez programistę kod, jest jego dziełem.</p>
-                        <strong>CZYM JEST KOMPILATOR?</strong>
-                        <p>Jak już wspomnieliśmy kompilator umożliwia przekształcenie kodu źródłowego do
-
-                            kodu wynikowego, który możemy bezpośrednio uruchomić na komputerze( czynność
-
-                            nazywana kompilacją). W momencie kompilacji następuje test poprawność
-
-                            napisanego przez nas kodu, jeśli kompilator znajdzie chociaż jeden błąd- kończy
-
-                            swoje działanie, informując nas o błędzie. Oprócz informowania o błędzie kompilator
-
-                            może również w trakcie kompilacji wyświetlić ostrzeżenie - warning. Ostrzeżenie nie
-
-                            determinuje zatrzymania procesu kompilacji, mimo ostrzeżenia możemy uzyskać
-
-                            wykonywalną aplikację, jednakże nie powinno się bagatelizować ostrzeżeń- mogą
-
-                            one zwiastować możliwość wystąpienia błędu.</p>
-                        <strong>KILKA SŁÓW O JĘZYKU C++</strong>
-                        <p>Język C++ jest jednym z najbardziej popularnych języków programowania.
-
-                            Dlaczego? Jest językiem, który wykorzystywać można zarówno do pisania prostych
-
-                            programów jak i tych znacznie skomplikowanych. Jest to język dynamicznie
-
-                            rozwijający się. Jego początki przypisujemy na lata 80, a jego twórcą jest Bjarne
-
-                            Stroustrup.</p>
-                        <p align="left">Język C++ posiada szereg zalet:</p>
-                        <ul style="text-align: left">
-                            <li>
-                                jest nowoczesny, wyposażony w wiele mechanizmów, które można spotkać w
-
-                                innych językach programowania
-                            </li>
-                            <li>
-                                daje duże możliwości
-                            </li>
-                            <li>
-                                wiele języków ma składnię bardzo zbliżoną do C++, zatem poznanie tego
-
-                                języka, spowoduje, że w momencie, gdy będziesz chciał się nauczyć np. PHP,
-
-                                będzie Ci o wiele łatwiej.
-                            </li>
-                            <li>
-                                jest uniwersalny- posiada kompilatory zarówno dla systemów operacyjnych
-
-                                Windows jak i Linux
-                            </li>
-                        </ul>
-                        <strong>NARZĘDZIA POTRZEBNE DO PROGRAMOWANIA</strong>
-                        <p>Na podstawie uzyskanych przez Ciebie informacji z poprzednich akapitów, na pewno
-
-                            wiesz, że jednym z narzędzi potrzebnych do programowania jest kompilator, ale co
-
-                            jeszcze? Do programowania będziesz potrzebować:</p>
-                        <ul style="text-align: left">
-                            <li>
-                                edytora tekstu do pisania kodu źródłowego. Edytorem tym może być zwykły
-
-                                notatnik z systemu Windows bądź Linux, ale zdecydowanie lepsze są
-
-                                programy, które posiadają funkcję m.in kolorowania składni. Szczerze mówiąc,
-
-                                żaden programista o zdrowych zmysłach nie użyłby do programowania
-
-                                notatnika :)
-                            </li>
-                            <li>
-                                Kompilatora, do przekształcania kodu źródłowego
-                            </li>
-                            <li>
-                                Debugera- programu diagnostycznego, który wyszuka błędy w kodzie
-                            </li>
-                        </ul>
-                        <p align="left">Żeby uzyskać te trzy narzędzia:</p>
-                        <ul style="text-align: left">
-                            <li>
-                                możesz zdobyć każdy osobno, jest to bardzo skomplikowane, ale możliwe(
-
-                                zwłaszcza w systemie Linux)
-                            </li>
-                            <li>
-                                możesz skorzystać z programu, który zawiera w sobie je wszystkie. Programy
-
-                                te nazywamy zintegrowanym środowiskiem programistycznym
-                            </li>
-
-                        </ul>
-                        <strong>WYBÓR ŚRODOWISKA DO PROGRAMOWANIA</strong>
-                        <ul style="text-align: left">
-                        <li>
-                            Najbardziej popularnym środowiskiem programistycznym dla systemu
-
-                            Windows jest Microsoft Visual C++. Jego wersja Community jest bezpłatna:
-
-                            https://www.visualstudio.com/pl/vs/community/. Jest to środowisko tylko i
-
-                            wyłącznie dostępne dla systemu Windows
-                        </li>
-                        <li>
-                            Drugim środowiskiem, które chcemy Ci polecić jest Code::Blocks, jest to
-
-                            darmowe środowisko, dostępne dla Windowsa, Linuxa i Mac.
-                        </li>
-
-                        </ul>
-                        <p>Wybór należy do Ciebie. My wybraliśmy Microsoft Visual C++, dlatego
-
-                            zachęcamy Cię do również do tego wyboru. Pamiętaj, że w każdej chwili
-
-                            możesz również wykorzystać kompilator udostępniony dla Ciebie na naszej
-
-                            platformie.</p>
-                        <strong>Podsumowanie</strong>
-                        <p align="left">Dzięki tej lekcji:</p>
-                        <ul style="text-align: left">
-                            <li>
-                                wiesz czym jest programowanie oraz kto może zostać programistą
-                            </li>
-                            <li>
-                                umiesz przedstawić proces programowania oraz opisać rolę
-
-                                kompilatora w nim uczestniczącego
-                            </li>
-                            <li>
-                                znasz genezę języka C++ i umiesz wymienić jego zalety
-                            </li>
-
-                        </ul>
                     </div>
                 </div>
-                <button class="btn btn-default btn-md" onclick="window.location.href='/test'">Przejdź do testu</button>
+                <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/1'">Przejdź do testu</button>
             </div>
         </div>
+    </div>
         <!-- /.row -->
 
     </div>

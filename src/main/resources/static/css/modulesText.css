@@ -1,0 +1,10 @@
+@page { margin: 0.98in }
+P { margin-bottom: 0.08in; direction: ltr; text-align: justify; widows: 2; orphans: 2 }
+P.western { font-family: "Calibri Light", serif; font-size: 12pt }
+P.cjk { font-size: 12pt }
+
+
+H2 { margin-top: 0.14in; margin-bottom: 0in; direction: ltr; color: #000000; text-align: justify; page-break-inside: avoid; widows: 2; orphans: 2 }
+H2.western { font-family: "Calibri Light", serif; font-size: 14pt }
+H2.cjk { font-family: "Arial"; font-size: 14pt }
+H2.ctl { font-family: ""; font-size: 13pt }

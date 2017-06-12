@@ -93,19 +93,16 @@ public class ModuleController
     {
         return Path.Template.LESSON34;
     }
+
     @RequestMapping(value = Path.Web.LESSON35)
     public String serveLesson35Page()
     {
         return Path.Template.LESSON35;
     }
 
-    @RequestMapping(value = Path.Web.TEST)
-    public String serveTestPage()
+    @RequestMapping(value = Path.Web.TEST11)
+    public String serveTest11Page()
     {
-        return Path.Template.TEST;
+        return Path.Template.TEST11;
     }
-
-
-
-
 }
