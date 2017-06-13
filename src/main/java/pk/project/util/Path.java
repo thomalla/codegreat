@@ -45,10 +45,12 @@ public class Path
         public static final String LESSON35 = "/lesson/3/5";
 
         public static final String TEST1 = "/test/1";
+        public static final String TEST2CHECK="/test/check2";
         public static final String TEST2 = "/test/2";
         public static final String TEST3 = "/test/3";
 
         public static final String TEST11 = "/test/1/1";
+        public static final String TEST11CHECK = "/test/1/check1";
         public static final String TEST12 = "/test/1/2";
         public static final String TEST13 = "/test/1/3";
         public static final String TEST14 = "/test/1/4";
@@ -59,7 +61,7 @@ public class Path
         public static final String TEST22 = "/test/2/2";
         public static final String TEST23 = "/test/2/3";
         public static final String TEST24 = "/test/2/4";
-        public static final String TEST25 = "/test/2/5";
+        public static final String TEST35 = "/test/2/5";
 
         public static final String TEST31 = "/test/3/1";
         public static final String TEST32 = "/test/3/2";
@@ -117,6 +119,7 @@ public class Path
         public static final String TEST2 = "html/course//tests/test2.html";
         public static final String TEST3 = "html/course//tests/test3.html";
 
+
         public static final String TEST11 = "html/course/tests/test11.html";
         public static final String TEST12 = "html/course/tests/test12.html";
         public static final String TEST13 = "html/course/tests/test13.html";
@@ -128,7 +131,8 @@ public class Path
         public static final String TEST22 = "html/course/tests/test22.html";
         public static final String TEST23 = "html/course/tests/test23.html";
         public static final String TEST24 = "html/course/tests/test24.html";
-        public static final String TEST25 = "html/course/tests/test25.html";
+
+        public static final String TEST35 = "html/course/tests/test25.html";
 
         public static final String TEST31 = "html/course/tests/test31.html";
         public static final String TEST32 = "html/course/tests/test32.html";

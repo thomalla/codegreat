@@ -12,7 +12,7 @@
 <div th:include="layout/generalLayout :: scripts"></div>
 
 <div id="fullscreen_bg" class="fullscreen_bg"/>
-<script>window.onload = counter;</script>
+<script th:if="${correctness==null}">window.onload = counter;</script>
 <header>
 
     <link href="/css/boxstyle.css" rel="stylesheet">
@@ -54,31 +54,37 @@
                             </div><!-- /col-sm-1 -->
                             <div class="col-sm-10">
                                 <div class="panel panel-warning">
-                            <form>
+                                    <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><IMG SRC="/img/modul1/MODU_1_html_9932b027.png" NAME="Obraz 25" ALIGN=BOTTOM WIDTH=344 HEIGHT=80 BORDER=0></P>
+
+                                    <form th:if="${correctness==null}" action="check1" method="post">
+                                <input type="hidden"
+                                       th:name="${_csrf.parameterName}"
+                                       th:value="${_csrf.token}" />
                                     <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
                                     </P>
-                                    <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><IMG SRC="/img/modul1/MODU_1_html_9932b027.png" NAME="Obraz 25" ALIGN=BOTTOM WIDTH=344 HEIGHT=80 BORDER=0></P>
                                     <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 1.</B></P>
                                     <P CLASS="western" STYLE="margin-bottom: 0.11in">Co jest prawdą:
                                     </P>
 
                                         <p align="left">Odpowiedzi:</p>
                                         <div style="text-align: left">
-                                            <div class="radio" id="1">
-                                                <label><input type="radio" name="1">A) C++ jest językiem uniwersalnym
+
+                                            <div class="radio" >
+                                                <label><input type="radio" value="a" name="a1">A) C++ jest językiem uniwersalnym
                                                     ale przestarzałym</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="1">B) Kompilator może nas
+                                                <label><input type="radio" value="b" name="a1">B) Kompilator może nas
                                                     poinformować o błędzie i  o ostrzeżeniu</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="1">C) Ostrzeżenie nie może być
+                                                <label><input type="radio" value="c" name="a1">C) Ostrzeżenie nie może być
                                                     pominięte przez programistę, w przypadku pominięcia- kod nie
                                                     skompiluje się. </label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="1">D) Aby być programistą trzeba
+
+                                                <label><input type="radio" value="d" name="a1">D) Aby być programistą trzeba
                                                     być uzdolnionym matematycznie</label>
                                             </div>
                                         </div>
@@ -88,26 +94,102 @@
 
                                 <p align="left">Odpowiedzi:</p>
                                 <div style="text-align: left">
-                                    <div class="radio">
-                                        <label><input type="radio" name="2">A) Istnieją języki ze składnią
+
+                                    <div class="radio" >
+                                        <label><input type="radio" value="a" name="a2">A) Istnieją języki ze składnią
                                             zbliżoną do składni C++</label>
                                     </div>
                                     <div class="radio">
-                                        <label><input type="radio" name="2">B) Programista tworzy
+                                        <label><input type="radio" value="b" name="a2">B) Programista tworzy
                                             oprogramowanie oraz rozwiązuje problemy</label>
                                     </div>
                                     <div class="radio">
-                                        <label><input type="radio" name="2">C) C++ można wykorzystywać
+                                        <label><input type="radio" value="c" name="a2">C) C++ można wykorzystywać
                                             tylko i wyłącznie do nieskompilowanych programów, co jest jego
                                             ogromną wadą. </label>
                                     </div>
                                     <div class="radio">
-                                        <label><input type="radio" name="2">D) Aby być programistą trzeba
+
+                                        <label><input type="radio" value="d" name="a2">D) Aby być programistą trzeba
                                             być uzdolnionym matematycznie</label>
                                     </div>
                                 </div>
                                 <button class="btn btn-default btn-md" type="submit">Sprawdź</button>
                             </form>
+                                    <div th:if="${correctness!=null}">
+                                        <div class="well well-sm">
+                                            <h2><b>TWÓJ WYNIK TO <span th:text="${score}+'/2'"></span></b></h2>
+                                        </div>
+                                            <P CLASS="western" STYLE="margin-bottom: 0in"><b>TWOJE ODPOWIEDZI:</b></P>
+                                        <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                        </P>
+                                        <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 1.</B></P>
+                                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Co jest prawdą:
+                                        </P>
+
+                                        <p align="left">Odpowiedzi:</p>
+                                        <div style="text-align: left">
+                                            <span th:if="${correctness[0]==true}">
+                                                <p class="alert">A) C++ jest językiem uniwersalnym
+                                                    ale przestarzałym</p>
+                                                <p class="alert label-success">B) Kompilator może nas
+                                                    poinformować o błędzie i  o ostrzeżeniu</p>
+
+                                                <p class="alert">C) Ostrzeżenie nie może być
+                                                    pominięte przez programistę, w przypadku pominięcia- kod nie
+                                                    skompiluje się. </p>
+
+
+                                                <p class="alert">D) Aby być programistą trzeba
+                                                    być uzdolnionym matematycznie</p>
+                                            </span>
+                                            <span th:if="${correctness[0]==false}">
+                                                <p class="alert" th:classappend="${userAnswers[0].equals('a')}?label-danger:alert">A) C++ jest językiem uniwersalnym
+                                                    ale przestarzałym</p>
+                                                <p class="alert alert-success">B) Kompilator może nas
+                                                    poinformować o błędzie i  o ostrzeżeniu</p>
+
+                                                <p class="alert" th:classappend="${userAnswers[0].equals('c')}?label-danger:alert">C) Ostrzeżenie nie może być
+                                                    pominięte przez programistę, w przypadku pominięcia- kod nie
+                                                    skompiluje się. </p>
+
+
+                                                <p class="alert" th:classappend="${userAnswers[0].equals('d')}?label-danger:alert">D) Aby być programistą trzeba
+                                                    być uzdolnionym matematycznie</p>
+                                            </span>
+                                        </div>
+
+                                        <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 2.</B></P>
+                                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Nieprawdą jest, że:</P>
+
+                                        <p align="left">Odpowiedzi:</p>
+                                        <div style="text-align: left">
+                                            <span th:if="${correctness[1]==true}">
+                                                <p class="alert">A) Istnieją języki ze składnią
+                                                    zbliżoną do składni C++</p>
+                                                <p class="alert">B) Programista tworzy
+                                                    oprogramowanie oraz rozwiązuje problemy</p>
+                                                <p  class="alert label-success">C) C++ można wykorzystywać
+                                                    tylko i wyłącznie do nieskompilowanych programów, co jest jego
+                                                    ogromną wadą. </p>
+                                                <p class="alert">D) Aby być programistą trzeba
+                                                    być uzdolnionym matematycznie</p>
+                                            </span>
+                                            <span th:if="${correctness[1]==false}">
+                                                <p class="alert" th:classappend="${userAnswers[1].equals('a')}?label-danger:alert">A) Istnieją języki ze składnią
+                                                    zbliżoną do składni C++</p>
+                                                <p class="alert" th:classappend="${userAnswers[1].equals('b')}?label-danger:alert">B) Programista tworzy
+                                                    oprogramowanie oraz rozwiązuje problemy</p>
+                                                <p  class="alert alert-success">C) C++ można wykorzystywać
+                                                    tylko i wyłącznie do nieskompilowanych programów, co jest jego
+                                                    ogromną wadą. </p>
+                                                <p class="alert" th:classappend="${userAnswers[1].equals('d')}?label-danger:alert">D) Aby być programistą trzeba
+                                                    być uzdolnionym matematycznie</p>
+                                            </span>
+                                        </div>
+                                        <a href="/test/1/1"><button class="btn btn-info" style="margin: 10px;">Powtórz test</button></a><a href="/lesson/1/2"><button class="btn btn-info" style="margin: 10px;">Następna lekcja</button></a>
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-1">

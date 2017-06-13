@@ -54,7 +54,7 @@
                                     </div><!-- /col-sm-1 -->
                                     <div class="col-sm-10">
                                         <div class="panel panel-warning">
-                                            <form>
+                                            <form th:if="${correctness==null}" action="check1" method="post">
                                                 <input type="hidden"
                                                        th:name="${_csrf.parameterName}"
                                                        th:value="${_csrf.token}" />
@@ -365,6 +365,17 @@ endl;</SPAN></FONT></FONT></FONT></P>
 
                                                 <button class="btn btn-default btn-md" type="submit">Sprawdź</button>
                                             </form>
+
+                                            <div th:if="${correctness!=null}">
+                                                <div class="well well-sm">
+                                                    <h2><b>TWÓJ WYNIK TO <span th:text="${score}+'/2'"></span></b></h2>
+                                                </div>
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><b>TWOJE ODPOWIEDZI:</b></P>
+                                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                                </P>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                     <div class="col-sm-1">
