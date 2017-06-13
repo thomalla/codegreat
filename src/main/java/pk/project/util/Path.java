@@ -16,6 +16,9 @@ public class Path
         public static final String QUESTION = "/question";
         public static final String QUESTIONS_NEWEST = "/questions/newest";
         public static final String ADD_QUESTION = "/addQuestion";
+        public static final String ADD_ANSWER = "/addAnswer";
+
+
         public static final String ALLMODULES = "/allModules";
 
         public static final String DESCRIPTION1 = "/description/1";
@@ -68,8 +71,6 @@ public class Path
         public static final String DELETEACCOUNTCONFIRMATION="/deleteAccountConfirmation";
         public static final String DELETEACCOUNT="/deleteAccount";
         public static final String CHANGEPASSWORD="/changePassword";
-
-
     }
 
     public static class Template

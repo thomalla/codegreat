@@ -157,8 +157,4 @@ public class UserController
         return Template.CHANGEPASSWORDFAILED;
 
     }
-
-
-
-
 }

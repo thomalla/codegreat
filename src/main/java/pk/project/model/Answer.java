@@ -3,14 +3,12 @@ package pk.project.model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 @Entity
-@Table(name="question")
-public class Question
+@Table(name="answer")
+public class Answer
 {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -20,11 +18,11 @@ public class Question
     @Column(name="userId", nullable=false, updatable = false)
     private Long userId;
 
+    @Column(name="questionId", nullable=false, updatable = false)
+    private Long questionId;
+
     @Column(name="username", nullable=false, updatable = false)
     private String username;
-
-    @Column(name="topic", nullable = false)
-    private String topic;
 
     @Column(name="contents", nullable = false, length = 10000)
     private String contents;
@@ -36,17 +34,10 @@ public class Question
     @Column(name="points")
     private Long points;
 
-    @Column(name="isResolved")
+    @Column(name="isAnswer")
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    private boolean isResolved;
+    private boolean isAnswer;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Answer> answers = new ArrayList<>();
-
-    public Long getId()
-    {
-        return id;
-    }
 
     public Long getUserId()
     {
@@ -58,6 +49,16 @@ public class Question
         this.userId = userId;
     }
 
+    public Long getQuestionId()
+    {
+        return questionId;
+    }
+
+    public void setQuestionId(Long questionId)
+    {
+        this.questionId = questionId;
+    }
+
     public String getUsername()
     {
         return username;
@@ -66,16 +67,6 @@ public class Question
     public void setUsername(String username)
     {
         this.username = username;
-    }
-
-    public String getTopic()
-    {
-        return topic;
-    }
-
-    public void setTopic(String topic)
-    {
-        this.topic = topic;
     }
 
     public String getContents()
@@ -108,19 +99,14 @@ public class Question
         this.points = points;
     }
 
-    public boolean isResolved()
+    public boolean isAnswer()
     {
-        return isResolved;
+        return isAnswer;
     }
 
-    public void setResolved(boolean resolved)
+    public void setAnswer(boolean answer)
     {
-        isResolved = resolved;
-    }
-
-    public List<Answer> getAnswers()
-    {
-        return answers;
+        isAnswer = answer;
     }
 }
 
