@@ -112,27 +112,27 @@ public class Path
         public static final String LESSON34 = "html/course/lessons/lesson34.html";
         public static final String LESSON35 = "html/course/lessons/lesson35.html";
 
-        public static final String TEST1 = "html/course//tests/test1.html";
+        public static final String TEST1 = "html/course/tests/test1.html";
         public static final String TEST2 = "html/course//tests/test2.html";
         public static final String TEST3 = "html/course//tests/test3.html";
 
-        public static final String TEST11 = "html/course//tests/test11.html";
-        public static final String TEST12 = "html/course//tests/test12.html";
-        public static final String TEST13 = "html/course//tests/test13.html";
-        public static final String TEST14 = "html/course//tests/test14.html";
-        public static final String TEST15 = "html/course//tests/test15.html";
-        public static final String TEST16 = "html/course//tests/test16.html";
+        public static final String TEST11 = "html/course/tests/test11.html";
+        public static final String TEST12 = "html/course/tests/test12.html";
+        public static final String TEST13 = "html/course/tests/test13.html";
+        public static final String TEST14 = "html/course/tests/test14.html";
+        public static final String TEST15 = "html/course/tests/test15.html";
+        public static final String TEST16 = "html/course/tests/test16.html";
 
-        public static final String TEST21 = "html/course//tests/test21.html";
-        public static final String TEST22 = "html/course//tests/test22.html";
-        public static final String TEST23 = "html/course//tests/test23.html";
-        public static final String TEST24 = "html/course//tests/test24.html";
-        public static final String TEST25 = "html/course//tests/test25.html";
+        public static final String TEST21 = "html/course/tests/test21.html";
+        public static final String TEST22 = "html/course/tests/test22.html";
+        public static final String TEST23 = "html/course/tests/test23.html";
+        public static final String TEST24 = "html/course/tests/test24.html";
+        public static final String TEST25 = "html/course/tests/test25.html";
 
-        public static final String TEST31 = "html/course//tests/test31.html";
-        public static final String TEST32 = "html/course//tests/test32.html";
-        public static final String TEST33 = "html/course//tests/test33.html";
-        public static final String TEST34 = "html/course//tests/test34.html";
+        public static final String TEST31 = "html/course/tests/test31.html";
+        public static final String TEST32 = "html/course/tests/test32.html";
+        public static final String TEST33 = "html/course/tests/test33.html";
+        public static final String TEST34 = "html/course/tests/test34.html";
 
         public static final String ACCOUNTEDITION = "html/accountEdition.html";
         public static final String DELETEACCOUNTCONFIRMATION = "html/deleteAccountConfirmation.html";

@@ -18,7 +18,6 @@
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/sb.css" rel="stylesheet">
 
-
     <div th:switch="${currentUser!=null}">
         <div th:case="false">
 
@@ -56,19 +55,420 @@
                         <div class="box">
                             <div class ="box-content">
 
-
-
+                                <H2 CLASS="western"><A NAME="_Toc483499942"></A>LEKCJA 2: PIERWSZY
+                                    PROGRAM W C++
+                                </H2>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W poprzedniej lekcji
+                                    poznałeś terminologię związaną z programowaniem i ogólny zarys
+                                    czym ono tak na prawdę jest. W tej lekcji, stworzysz swój pierwszy
+                                    program oraz poznasz dużo nowych zagadnień, które są konieczne do
+                                    powiedzenia w celu zrozumienia podstaw programowania.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>TWORZENIE
+                                    PROJEKTU W VISUAL C++</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jeśli jeszcze nie
+                                    zainstalowałeś środowiska programistycznego, zrób to teraz.
+                                    Pokażemy Ci krok po kroku jak stworzyć nowy projekt.
+                                </P>
+                                <OL>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Po uruchomieniu Visual C++
+                                        klijnij kolejno Plik/Nowy/ Projekt. Uzyskasz poniższe okno:</P>
+                                </OL>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_3f87fe34.png" NAME="Obraz 4" ALIGN=BOTTOM WIDTH=605 HEIGHT=369 BORDER=0></P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><I>Okno
+                                    tworzenia projektu w środowisku Visual C++ Community</I></P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <OL START=2>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Kliknij na Aplikację
+                                        konsolową, oraz wpisz wybraną przez siebie nazwę danego projektu,
+                                        następnie kliknij OK, w wyniku czego pojawi się nowe okno:</P>
+                                </OL>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_29139aaa.png" NAME="Obraz 7" ALIGN=BOTTOM WIDTH=605 HEIGHT=469 BORDER=0></P>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"> W tym kroku
+                                    kliknij przycisk Dalej.</P>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <OL START=3>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Po kliknięciu dalej uzyskasz
+                                        nowe okno, zaznacz takie opcje, jakie pokazuje poniższa grafika:</P>
+                                </OL>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_cd925a0e.png" NAME="Obraz 10" ALIGN=BOTTOM WIDTH=605 HEIGHT=469 BORDER=0></P>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in">Następnie
+                                    kliknij zakończ. Twój pierwszy projekt został stworzony!
+                                </P>
+                                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <OL START=4>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Kolejnym krokiem jest dodanie
+                                        pliku źródłowego do naszego projektu. Prawym przyciskiem myszy
+                                        kliknij na folder pliki źródłowe , a następnie kolejno
+                                        Dodaj/Nowy Element: <IMG SRC="/img/modul1/MODU_1_html_47379a1.png" NAME="Obraz 13" ALIGN=LEFT HSPACE=12 WIDTH=468 HEIGHT=298 BORDER=0>
+                                    </P>
+                                </OL>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <OL START=5>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Wybieramy plik C++ i nadajemy
+                                        mu nazwę, w tym kroku sugerujemy Ci nazwę main, dlaczego? O tym za
+                                        chwilę.
+                                    </P>
+                                </OL>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_b3a40199.png" NAME="Obraz 16" ALIGN=LEFT HSPACE=12 WIDTH=605 HEIGHT=369 BORDER=0><BR><BR>
+                                </P>
+                                <OL START=6>
+                                    <LI><P STYLE="margin-bottom: 0.11in">To wszystkie kroki, które
+                                        umożliwią Ci rozpoczęcie pisania pierwszego programu w C++
+                                    </P>
+                                </OL>
+                                <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><B>PROGRAMY
+                                    KONSOLOWE </B>
+                                </P>
+                                <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in">Jak zapewne
+                                    zauważyłeś w procesie tworzenia projektu zaznaczyliśmy opcję
+                                    aplikacji konsolowej. Dlaczego? Zapewne kiedy myślisz o
+                                    programowaniu, masz w głowie aplikacje, z których korzystasz na co
+                                    dzień. Takie aplikacje są aplikacjami z graficznym interfejsem
+                                    użytkownika( GUI). Rozpoczynając przygodę z programowaniem nie
+                                    tworzy się aplikacji z GUI, gdyż są one skomplikowane i wymagają
+                                    dużych umiejętności programistycznych. Rozpoczynając naukę
+                                    programowania piszemy programy konsolowe. Choć na pierwszy rzut oka
+                                    są one niezbyt atrakcyjne wizualnie, gdyż składają się wyłącznie
+                                    z czarnego tła z białymi literami, tworzenie ich jest znacznie
+                                    łatwiejsze niż programów z GUI.
+                                </P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_cd9b403f.png" NAME="Obraz 28" ALIGN=BOTTOM WIDTH=437 HEIGHT=187 BORDER=0></P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><I>Przykład
+                                    programu konsolowego</I></P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><B>WITAJ
+                                    W ŚWIECIE! </B>
+                                </P>
+                                <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><I>Hello world!
+                                </I>to wyrażenie znane każdemu programiście na świecie. Przyjęło
+                                    się, że program Hello world realizuje funkcję demonstracyjną
+                                    danego języka programowania. Jeśli jesteś ciekawy, jak wygląda
+                                    ten program w innych językach odwiedź ten link: <A HREF="http://www.scriptol.com/programming/hello-world.php">List
+                                        of Hello World Programs in 200 Programming Languages</A>. Tymczasem,
+                                    my zajmiemy się Twoim pierwszym programem- <I>Hello world! </I>w
+                                    języku C++.
+                                </P>
+                                <P STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">/*</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	autor:
+Urszula Lis </SPAN></FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">*/</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    to jest mój pierwszy program napisany w C++</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;
+Hello World! &quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+ endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 1.08in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in">
+                                    <BR><BR>
+                                </P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><SPAN LANG="en-US"><I>Hello
+world w C++ </I></SPAN>
+                                </P>
+                                <P LANG="en-US" ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in">
+                                    <BR><BR>
+                                </P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.25in; margin-bottom: 0.11in">Powyżej
+                                    przedstawiamy Ci gotowy program Hello world, przepisz go do
+                                    utworzonego przez Ciebie projektu.  Uruchom go poprzez wciśnięcie :
+                                    <IMG SRC="/img/modul1/MODU_1_html_aa7ca29a.png" NAME="graphics2" ALIGN=BOTTOM WIDTH=190 HEIGHT=39 BORDER=0>.
+                                    W tym momencie Twój program będzie kompilowany. Aby uzyskać okno
+                                    konsoli wciśnij Ctr+F5. Powinieneś otrzymać poniższy wynik:</P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P ALIGN=CENTER STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_a4c7baeb.png" NAME="Obraz 19" ALIGN=BOTTOM WIDTH=437 HEIGHT=223 BORDER=0></P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.25in; margin-bottom: 0.11in"><B>Co
+                                    oznaczają poszczególne elementy programu? </B>
+                                </P>
+                                <P ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0.11in"><B>1.KOMENTARZE
+                                </B>
+                                </P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in">Każdy
+                                    programista może w programie umieszczać komentarze, które pozwolą
+                                    mu na swobodniejsze poruszanie się po kodzie, który napisał.
+                                    Wyobraź sobie program, który ma milion linii kodu. W tym przypadku
+                                    komentarze są bardzo pomocne dla każdego programisty, mogą np.
+                                    tłumaczyć co w danym miejscu się dzieje, jaki algorytm
+                                    zastosowano, mogą np. wskazywać na miejsce, w którym coś trzeba
+                                    poprawić, dodać. Komentarzy możesz również użyć w przypadku,
+                                    gdy chcesz ukryć jakiś fragment kodu przed kompilatorem. Kompilator
+                                    &quot; nie zagląda do komentarzy&quot; możesz tam napisać co tylko
+                                    chcesz. Istnieją dwa rodzaje komentarzy:
+                                </P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in">	- komentarz
+                                    liniowy //, który ciągnie się do końca linii,</P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in">	- komentarz
+                                    blokowy /* */ , wewnątrz którego można zawrzeć tekst składający
+                                    się z wielu linii.</P>
+                                <P STYLE="margin-left: 0.49in; margin-bottom: 0.11in">Jak widzisz w
+                                    programie zastosowaliśmy oba rodzaje komentarzy. Wiedząc już w
+                                    jaki sposób działają komentarze, powinieneś rozumieć dlaczego na
+                                    konsoli nie wyświetliły się informacje o autorze oraz zdanie: <FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">to
+                                        jest mój pierwszy program napisany w C++.</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><B>2.
+                                    DYREKTYWA #INCLUDE</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in">#include
+                                    jest to tzw. dyrektywa preprocesora. Dołącza ona  wskazany plik
+                                    źródłowy w miejscu jej wystąpienia. Nazwę pliku, który ma być
+                                    dołączony można podać w nawiasach ostrych, bądź w
+                                    cudzysłowie.Za pomocą dyrektywy #include możemy dołączyć
+                                    biblioteki( narzędzia, które umożliwiają nam uzyskanie szeregu
+                                    funkcji, które możemy wykorzystać w programie np. wyświetlenie
+                                    czegoś w konsoli), które nas interesują.  Jeśli jesteś
+                                    zainteresowany poznaniem innych bibliotek niż ta, którą użyliśmy
+                                    w naszym programie, polecamy odwiedzić <A HREF="http://www.cplusplus.com/reference/">LINK_BIBLIOTEKI</A>.
+                                    Przejdźmy do wykorzystanej przez nas biblioteki: <FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">iostream.
+                                    </FONT></FONT></FONT>Jest to standardowa biblioteka obsługująca
+                                    operacje wejścia i wyjścia( ang. Input/Output stream). Dzięki tej
+                                    bibliotece możemy za pomocą wyrażenia cout wypisać na konsoli
+                                    napis Hello world. W dalszej części kursu, na pewno jeszcze
+                                    będziemy korzystać z innych bibliotek, zatem spokojnie, twoja
+                                    wiedza zdobyta w tym kursie, nie będzie się ograniczać tylko do
+                                    tej jednej.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><B>3.INSTRUKCJA
+                                    USING NAMESPACE</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    Każda biblioteka, którą dołączymy do naszego programu ma swoje
+                                    funkcje. Może się zdarzyć taka sytuacja, że biblioteki bądź
+                                    pliki, które dołączymy będą miały tą samą nazwę funkcji. W
+                                    takim przypadku kompilator nie będzie wiedział, o którą funkcję
+                                    nam chodzi ( z której biblioteki), bo przecież jest ona w obu.
+                                    Rozwiązaniem tego problemu jest tzw. użycie przestrzeni nazw.
+                                    Wiersz kodu <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">using</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">namespace</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    std; </FONT></FONT></FONT>oznacza, że zamierzamy używać
+                                    przestrzeni nazw o nazwie std. Jest to najbardziej popularna
+                                    przestrzeń nazw w języku C++. Możemy również tworzyć własne
+                                    przestrzenie nazw, ale o tym dowiesz się w przyszłości.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    Istnieje alternatywne rozwiązanie do <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">using</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">namespace</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    std, </FONT></FONT></FONT><FONT COLOR="#000000"><FONT SIZE=2 STYLE="font-size: 11pt">mianowicie
+                                    można przed każdą funkcją wykorzystywaną z tej przestrzeni nazw
+                                    pisać std::, zatem poprawnie dla strumienia wyjścia: std::cout. </FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>4.FUNKCJA INT MAIN()</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    W tym miejscu znajduje się główna część programu. Funkcja
+                                    main() jest najważniejszą częścią programu. Początek i koniec
+                                    funkcji wyznaczają klamry {}. Funkcja ta wyznacza początek i koniec
+                                    wykonywania napisanego przez nas programu. Czy to oznacza, że za
+                                    każdym razem początek i koniec programu będzie wyznaczała funkcja
+                                    main()? Czy program składa się głównie z funkcji main()? NIE!
+                                    Zazwyczaj w funkcji main() wywołuje się inne funkcje napisane przez
+                                    programisty. Ale my, na tym etapie będziemy wszystko pisać w
+                                    funkcji main(). Przyjdzie taki moment w naszym kursie, że zdobyte
+                                    przez Ciebie umiejętności pozwolą na wyjście poza funkcję main()</P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>5. INSTRUKCJA COUT</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in">Instrukcja
+                                    cout służy do wypisywania napisów na ekranie. W naszym programie
+                                    znajduje się linia w kodzie:</P>
+                                <P CLASS="western" ALIGN=CENTER STYLE="margin-left: 0.49in; margin-bottom: 0in">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;
+Hello World! &quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+ endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><SPAN LANG="en-US">w
+której:</SPAN></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><SPAN LANG="en-US">	</SPAN><B>polecenie
+                                    cout-</B> odpowiada za wyświetlenie napisu na ekranie</P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in">	<B>łańcuch
+                                    &quot;Hello world&quot;</B> to napis, który ma być wyświetlony, &quot;&quot;
+                                    wskazują na 	początek i koniec łancucha</P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in">	<B>ciąg
+                                    endl- </B>oznacza do przejścia do nowego wiersza w konsoli
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>	&lt;&lt; &shy;- </B>strzałki oznaczają kierunek, wysłania
+                                    tekstu. W tym przypadku widzimy, że 		tekst &quot;popłynie&quot;
+                                    strumieniem prosto na ekran.</P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>PAMIĘTAJ! </B>Każda instrukcja musi kończyć się ; Znak ten
+                                    pozwala kompilatorowi odróżnić instrukcję od innych elementów
+                                    kodu źródłowego.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>6. INSTRUKCJA RETURN</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    Wiele źródeł podaje, że przed klamrą kończącą program powinno
+                                    podać się instrukcję return 0; &nbsp;Funkcja, o której jest tutaj
+                                    mowa zwraca wartość&nbsp;0, która oznacza, że jej wykonywanie
+                                    zakończyło się pomyślnie (wszystkie inne wartości oznaczają
+                                    jakiś problem). Jednakże standard przewiduje, że instrukcja ta
+                                    mimo nie napisania jej, wykona się automatycznie. Dlatego nasz
+                                    program jej nie zawiera.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>7. PROBLEM Z POLSKIMI ZNAKAMI</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    W systemie Windows jest problem z wyświetlaniem polskich znaków w
+                                    konsoli, dlatego radzimy Ci nie używać ich w Twoim kodzie.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <B>GRATULACJE! </B>Udało Ci się napisać i uruchomić swój
+                                    pierwszy program w języku C++. Trening czyni mistrza dlatego
+                                    zachęcamy Cię do wykonania tych dodatkowych zadań.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    1. Jak myślisz, co pojawi się na konsoli po wykonaniu poniższego
+                                    programu:</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;
+Hello World! </SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;
+                                    Witaj w swiecie&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    komentarz </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Czy
+                                    powyzej pojawila się linijka przerwy?&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Brawo!
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Poradziles
+                                    sobie swietnie&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    Stwórz nowy projekt, skompiluj powyższy kod. Czy dobrze
+                                    przewidziałeś wyniki działania programu?
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    2. Napisz program, który wyświetli na konsoli:</P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2>Cześć,
+                                    jestem &lt;Twoje imię&gt;, </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2>Dzisiaj
+                                    udało mi się napisać swój pierwszy program w języku C++.</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2>Czekam
+                                    na więcej! </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0.11in">
+                                    <FONT COLOR="#c00000"><FONT FACE="Consolas, serif"><FONT SIZE=2>&lt;Twoje
+                                        imię&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR><BR><BR><BR>Dzięki
+                                    tej lekcji:<IMG SRC="/img/modul1/MODU_1_html_9832d84b.png" NAME="graphics3" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0></P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0in">umiesz stworzyć projekt w Visual
+                                        C++</P>
+                                    <LI><P STYLE="margin-bottom: 0in">umiesz napisać prosty program z
+                                        wykorzystaniem strumienia wyjściowego</P>
+                                    <LI><P STYLE="margin-bottom: 0in">znasz elementy budujące program</P>
+                                </UL>
+                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                </P>
 
                             </div>
                         </div>
-                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/1'">Przejdź do testu</button>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/2'">Przejdź do testu</button>
                     </div>
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-
         </div>
-
+        <div th:include="layout/generalLayout :: footer"></div>
 </header>
 
 </body>

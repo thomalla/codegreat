@@ -16,6 +16,19 @@
     <link href="/css/boxstyle.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/sb.css" rel="stylesheet">
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
     <div class="container">
         <hr/>
         <hr/>
@@ -88,7 +101,9 @@
         <!-- /.row -->
 
     </div>
-
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
 </header>
 
 </body>

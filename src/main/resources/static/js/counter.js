@@ -1,6 +1,5 @@
-var minuta = 30;
+var minuta = 15;
 var sekunda = 1;
-var koniecegzaminu = 0;
 var koniecczasu = 0;
 
 function counter()

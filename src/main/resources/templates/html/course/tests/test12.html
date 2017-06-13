@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
 
+<head th:replace="layout/generalLayout :: head(pageTitle='TestLekcja2')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<script>window.onload = counter;</script>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+            <div class="container">
+
+
+
+                <div  class="row margintop">
+                    <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-4" >
+                        <div id="clock"></div>
+
+                    </div>
+
+                </div>
+                <div class="row centered-form">
+                    <div class="box">
+                        <div class ="box-content">
+
+                            <div class = "row">
+                                <ul >
+                                    <div class="col-sm-1">
+
+                                    </div><!-- /col-sm-1 -->
+                                    <div class="col-sm-10">
+                                        <div class="panel panel-warning">
+                                            <form>
+                                                <input type="hidden"
+                                                       th:name="${_csrf.parameterName}"
+                                                       th:value="${_csrf.token}" />
+                                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                                </P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><IMG SRC="/img/modul1/MODU_1_html_9932b027.png" NAME="Obraz 25" ALIGN=BOTTOM WIDTH=344 HEIGHT=80 BORDER=0></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 1.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Prawdą o komentarzach w C++ jest:
+                                                </P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio" id="1">
+                                                        <label><input type="radio" name="1">A) Powodują nieprzejrzystość i bałagan w kodzie</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">B) Komentarze liniowe mogą składać się z wielu linii poprzedzonych tylko jednym //</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">C) Zakomentowany tekst w komentarzach blokowych znajduje się wewnątrz /* */, gdzie /* wskazuje początek komentarza a */ koniec.</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">D) Treści zawarte w komentarzach są widoczne dla kompilatora i nie są przez niego pomijane</label>
+                                                    </div>
+                                                </div>
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 2.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Biblioteka iostream</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">A) jest jedną z podstawowych bibliotek w C++</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">B) musi być dołączona do programu poprzez: #incude "iostream"</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">C) obsługuje operacje wejścia i wyjścia</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">D) wszystkie odpowiedzi są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 3.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wskaż zdanie fałszywe</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">A) możemy definiować własne przestrzenie nazw</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">B) std to najpopularniejsza przestrzeń nazw w C++</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">C) instrukcje nie muszą kończyć się ; jednakże programiści ustalili kończenie instrukcji ; w celu zachowania porządku w kodzie</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">D) funkcja main() jest najważniejszą częścią programu</label>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-default btn-md" type="submit">Sprawdź</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
+<script type="text/javascript" src="js/likeButton.js"></script>
 </body>
-</html>

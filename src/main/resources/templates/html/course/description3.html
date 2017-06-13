@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
 </head>
+
 <body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+
+                                <H1 CLASS="western" ALIGN=CENTER><A NAME="_Toc481760825"></A><FONT SIZE=5><SPAN STYLE="font-weight: normal">MODUŁ
+3  - PROGRAMOWANIE OBIEKTOWE</SPAN></FONT><FONT SIZE=5> PODSTAWY</FONT></H1>
+                                <H1 CLASS="contents-heading-western">Zawartość</H1>
+                                <DIV ID="Table of Contents1" DIR="LTR">
+                                    <P STYLE="margin-bottom: 0.07in"><BR><BR>
+                                    </P>
+                                </DIV>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">Rozpoczynając
+                                    ten moduł, najprawdopodobniej zastanawiasz się czym jest
+                                    wspomniane w tytule lekcji <I><B>programowanie obiektowe .</B></I>
+                                    Śpieszymy się, by wytłumaczyć Ci to zagadnienie. Nie sposób
+                                    rozpoczynając przygodę z programowaniem obiektowym i chcąc uzyskać
+                                    informacje na jego temat,  nie cofnąć się kilka lat wstecz,
+                                    sprawdzając początki jego istnienia.  Nie chcemy uczynić tego
+                                    kursu nudnym, dlatego postanowiliśmy nie wgłębiać się w aspekty
+                                    historyczne. Jednakże chcemy byś wiedział, że początki
+                                    korzystania z programowania obiektowego przypisujemy na lata
+                                    osiemdziesiąte- to wtedy właśnie powstał język Smalltalk,
+                                    pierwszy język programowania  realizujący paradygmat programowania
+                                    obiektowego. Jak mówił Platon: <I> Wiedza jest drugim słońcem dla
+                                        ludzi </I>dlatego, zachęcamy Cię do zapoznania się z informacjami
+                                    na temat tego języka: <A HREF="https://objectspace.net/pier/SmalltalkPL">Smalltalk</A>.
+                                    Ale dość o historii, wróćmy do teraźniejszości i definiowania
+                                    programowania obiektowego.</P>
+                                <P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">Programowanie
+                                    obiektowe jest techniką, której wykorzystanie dominuje w przypadku
+                                    dużych, obszernych projektów. Dzięki programowaniu obiektowemu,
+                                    mamy możliwość wykorzystywania technik zarządzania  złożonymi
+                                    elementami, możemy wykorzystywać wielokrotnie te same komponenty,
+                                    łącząc je w całość.  Gdy mamy do czynienia z programowaniem
+                                    obiektowym manipulujemy, zarządzamy OBIEKTAMI a nie danymi.
+                                    Informacje na temat obiektów, czym są, uzyskasz w następnej lekcji
+                                    tego kursu.
+                                </P>
+                                <P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">Programowanie
+                                    obiektowe posiada 4 najważniejsze cechy którymi są:</P>
+                                <P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul3/ObiektowePodstawy_html_2b71cb93.png" NAME="Obraz 7" ALIGN=BOTTOM WIDTH=254 HEIGHT=295 BORDER=0></P>
+                                <P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">Być
+                                    może brzmi to dla Ciebie skomplikowanie. Spokojnie, daj sobie czas,
+                                    by poznać to zagadnienie. W tym module po kolei wytłumaczymy Ci na
+                                    czym polega programowanie obiektowe. Jesteśmy przekonani, że pod
+                                    koniec tego kursu te 4 pojęcia nie będą miały  dla Ciebie żadnych
+                                    tajemnic, a zdobyte umiejętności pozwolą Ci w pełni świadomie z
+                                    nich korzystać :) Pamiętaj, że język C++, którego tajniki
+                                    postanowiłeś poznać jest przykładem języka stworzonego do
+                                    programowania obiektowego ale oprócz cech języka obiektowego
+                                    zachowuje on również cechy języka strukturalnego, zatem nie można
+                                    powiedzieć, że język C++ jest czystym językiem obiektowym.
+                                </P>
+                                <P CLASS="western" ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
 
 </body>
-</html>

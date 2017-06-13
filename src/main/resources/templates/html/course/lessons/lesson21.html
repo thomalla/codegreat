@@ -18,7 +18,6 @@
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/sb.css" rel="stylesheet">
 
-
     <div th:switch="${currentUser!=null}">
         <div th:case="false">
 
@@ -55,20 +54,662 @@
                     <div class="col-md-9">
                         <div class="box">
                             <div class ="box-content">
+                                <H2 CLASS="western"><A NAME="_Toc484706156"></A>LEKCJA 1: Instrukcja
+                                    warunkowa IF...ELSE</H2>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">	 Wytłumaczenie tej
+                                    instrukcji nie może się obejść od odwołania do Twojego
+                                    codziennego życia. Każdego dnia musisz podejmować decyzje, od
+                                    momentu przebudzenia decydujesz co zjesz na śniadanie, w co się
+                                    ubierzesz, czasem podejmować musisz decyzje nie tak błahe jak te
+                                    związane z codziennością ale mające duży wpływ na Twoje życie
+                                    np. wybór studiów, wzięcie kredytu. Komputer również podejmuje
+                                    decyzje. Jest to co prawda inny proces, niż w przypadku podejmowania
+                                    decyzji przez człowieka- przecież to tylko maszyna. Programista za
+                                    pomocą odpowiednich narzędzi jest w stanie narzucić komputerowi
+                                    podjęcie danej decyzji w danym momencie, powiedzieć jak ma się
+                                    zachować jeśli zostaną spełnione odpowiednie warunki.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">	Jednym z tych
+                                    narzędzi jest instrukcja warunkowa IF( z ang. if oznacza <I>jeśli</I>).
+                                    Instrukcja ta mówi, że jeśli zostaną spełnione odpowiednie
+                                    warunki, to komputer ma wykonać daną operację. Uwzględnia ona
+                                    możliwość sytuacji, w której dane warunki nie zostaną spełnione.
+                                    W przypadku takiej sytuacji, również można narzucić komputerowi
+                                    wykonanie jakiś narzuconych operacji.  Część instrukcji
+                                    warunkowej if, po której w przypadku niespełnienia warunków
+                                    komputer wykonuje operacje, rozpoczyna się od słowa else.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>WARUNEK IF</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Składnia warunku
+                                    if</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT FACE="Consolas, serif">IF(
+                                    warunek) </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT FACE="Consolas, serif">{</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT FACE="Consolas, serif">	//
+                                    operacje, które się wykonają, gdy warunek zostanie spełniony</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT FACE="Consolas, serif">}</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Czym może być
+                                    warunek? Warunkiem będzie wartość wyrażenia logicznego tj. true
+                                    bądź false. Najprościej będzie przeanalizować to zagadnienie na
+                                    przykładach.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"> <B>PRZYKŁAD1:</B></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a == </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;zmienna
+                                    a to true&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Zauważ, że w
+                                    instrukcji if sprawdzamy, czy wartość naszej zmiennej jest równa
+                                    true, zwracana wartość tego wyrażenia to true lub false, jeśli
+                                    true to na konsoli wyświetla się komunikat.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_be678c81.png" NAME="Obraz 1" ALIGN=BOTTOM WIDTH=437 HEIGHT=103 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Równoznacznym dla
+                                    tej instrukcji warunkowej będzie:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;zmienna
+a to true&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Gdyż automatycznie
+                                    kompilator będzie sprawdzał czy wartość zmiennej a to true.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><SPAN LANG="en-US"><B>PRZYKŁAD
+2:</B></SPAN></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(10);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt; 20)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    mniejsze od 20&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_8db7bd3a.png" NAME="Obraz 4" ALIGN=BOTTOM WIDTH=437 HEIGHT=127 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in">W instrukcji warunkowej
+                                    sprawdzany jest warunek czy wartość zmiennej a jest mniejsza od 20.
+                                    Jest mniejsza, zwracana jest zatem wartość true i wyświetlony
+                                    zostaje komunikat.  W przypadku, gdyby wartość zmiennej a była
+                                    większa od 20:</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a(100);</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a &lt; 20)</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    mniejsze od 20&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Na konsoli nie
+                                    wyświetli się żaden komunikat, gdyż nie zostanie spełniony
+                                    warunek w instrukcji warunkowej:
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_80d2c3c0.png" NAME="Obraz 7" ALIGN=BOTTOM WIDTH=437 HEIGHT=127 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>przykład 3</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W instrukcji
+                                    warunkowej mogą się znajdować bardziej skomplikowane wyrażenia:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(10);</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b(12);</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+w(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt;b &amp;&amp; b&gt; 2 || !w )</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;zwrocono
+                                    true&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_2b565acd.png" NAME="Obraz 10" ALIGN=BOTTOM WIDTH=437 HEIGHT=103 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wspomnieliśmy
+                                    wcześniej, że programista może narzucić wykonanie operacji
+                                    komputerowi, w przypadku, gdy nie zostaną spełnione warunki, zatem
+                                    w instrukcji warunkowej zostanie zwrócone false. Instrukcja if...
+                                    else ma następującą postać:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">IF(
+                                    warunek) </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">	{</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">		//
+                                    operacje, które się wykonają, gdy warunek zostanie spełniony</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">	}</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">else
+                                </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">	{</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">		//
+                                    operacje, które się wykonają, gdy warunek zostanie spełniony </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><FONT FACE="Consolas, serif">	}</FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Na przykładach:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>PRZYKŁAD 1</B></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;zmienna
+a to true&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	}</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;zmienna
+a to false&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_149483c0.png" NAME="Obraz 13" ALIGN=BOTTOM WIDTH=437 HEIGHT=91 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><SPAN LANG="en-US"><B>PRZYKŁAD
+2	</B></SPAN></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(10);</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b(12);</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+w(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt;b &amp;&amp; b&gt; 20 || w)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;zwrocono
+true&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	}</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">cout
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;zwrocono
+                                    false&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_70d63c06.png" NAME="Obraz 16" ALIGN=BOTTOM WIDTH=437 HEIGHT=103 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wartość wyrażenia:
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">a
+                                        &lt;b &amp;&amp; b&gt; 20 || w  </FONT></FONT></FONT><FONT COLOR="#000000">to
+                                        false, zatem wyświetlony został komunikat z części else. </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><B>ZAGNIEŻDZANIE
+                                    WARUNKÓW</B></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000">Musisz
+                                    wiedzieć, że instrukcje warunkowe można zagnieżdżać np:</FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(11);</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &gt; 0)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    to liczba dodatnia&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a % 2 == 0)</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    to liczba parzysta&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    to liczba nieparzysta&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;a
+                                    to liczba ujemna&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W powyższym
+                                    programie gdy pierwszy warunek zostanie spełniony, sprawdzamy
+                                    kolejny warunek. Wynikiem działania tego programu jest:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_bdc7c384.png" NAME="Obraz 19" ALIGN=BOTTOM WIDTH=437 HEIGHT=115 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Na początku
+                                    sprawdzany jest warunek sprawdzający czy dana liczba jest dodatnia,
+                                    ponieważ liczba 11 jest dodatnią, przechodzimy do sprawdzenia
+                                    kolejnego warunku. Gdyby 11 nie była liczbą dodatnią to nie
+                                    przeszlibyśmy do zagnieżdżonej instrukcji warunkowej, tylko
+                                    wyświetlony byłby komunikat: a to liczba ujemna. Przechodzimy do
+                                    kolejnego warunku. W nim sprawdzamy, czy nasza liczba jest parzysta,
+                                    ponieważ nie jest, wyświetlony zostaje komunikat z części else (
+                                    wartość warunku to false) : a to liczba nieparzysta.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>INSTRUKCA ELSE IF
+                                    - DODAWANIE KOLEJNYCH WARUNKÓW</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Programując możemy
+                                    się spotkać z sytuacją, gdy porównując daną wartość możemy
+                                    uzyskać więcej niż 2 możliwości np. Jeśli liczba piłek to 1 to
+                                    wykonaj dana operację, jeśli liczba piłek jest &lt;10 to wykonaj
+                                    daną operację, jeśli liczba piłek = 100 to wykonaj daną
+                                    operację, w pozostałych przypadkach wykonaj inna operację. Aby
+                                    utworzyć taki zestaw warunków wykorzystamy instrukcję else if ( w
+                                    przeciwnym razie jeśli). <SPAN LANG="en-US">Popatrz na przykład:</SPAN></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    liczbaPilek(40);</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (liczbaPilek == 1)</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Ostatnia
+                                    piłka!&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (liczbaPilek &lt; 10)</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Zamów
+                                    piłki! &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (liczbaPilek &lt; 100)</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                    piłek jest odpowiednia&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(liczbaPilek == 100)</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;Magazyn
+pełny&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                    piłek jest nieodpowiednia&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Mamy 40 piłek.
+                                    Komputer na początku sprawdza, czy mamy 1 piłkę. Wynik jest
+                                    negatywny, zatem kompilator przechodzi do pierwszej instrukcji else
+                                    if. Wynik również jest negatywny, więc komputer przechodzi do
+                                    kolejnej instrukcji else if, wynik jest pozytywny, zatem jest
+                                    wyświetlony komunikat Liczba piłek jest odpowiednia. Program kończy
+                                    swoją działalność, nie są sprawdzane pozostałe warunki. W
+                                    przypadku, gdy dla każdej instrukcji else if zwrócony wynik byłby
+                                    negatywny- wyświetlony zostałby komunikat Liczba piłek jest
+                                    nieodpowiednia- który zostanie zwrócony zawsze, gdy nie zostaną
+                                    spełnione pozostałe warunki if i else if.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
 
-
-
-
+                                <P CLASS="western" STYLE="margin-bottom: 0in">Napisz program, który
+                                    po podaniu odpowiedniej wartości skali Richtera, na konsoli wypisze
+                                    odpowiadające tej wielkości trzęsienia ziemi skutki.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul2/MODU_2_FAJNAL_html_9832d84b.png" NAME="Obraz 22" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT SIZE=3>	Dzięki
+                                    tej lekcji:</FONT></P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><FONT SIZE=3>poznałeś i
+                                        umiesz wykorzystać instrukcję warunkową if</FONT></P>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><FONT SIZE=3>poznałeś i
+                                        umiesz wykorzystać instrukcję warunkową if... else</FONT></P>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><FONT SIZE=3>poznałeś i
+                                        umiesz wykorzystać instrukcję warunkową  else if</FONT></P>
+                                </UL>
                             </div>
                         </div>
-                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/1'">Przejdź do testu</button>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/2/1'">Przejdź do testu</button>
                     </div>
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-
         </div>
-
+        <div th:include="layout/generalLayout :: footer"></div>
 </header>
 
 </body>
