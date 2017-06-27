@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="/css/modulesText.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+                                <H2 CLASS="western"><A NAME="_Toc483499944"></A>LEKCJA 4: OPERACJE NA
+                                    ZMIENNYCH</H2>
+                                <P STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P STYLE="margin-bottom: 0.11in"><B>MODYFIKACJA ZMIENNYCH</B></P>
+                                <P STYLE="margin-bottom: 0.11in">Każdej zmiennej, którą
+                                    wykorzystywać będziesz w swoim kodzie, możesz modyfikować
+                                    wartość. W jaki sposób? Nie jest to trudne,  po prostu wpisujesz
+                                    nazwę tej zmiennej a następnie przypisujesz jej zmienioną wartość.
+                                    Istnieje również możliwość przypisania jednej zmiennej wartości
+                                    innej zmiennej. Popatrz na kod:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    main()</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a(4), b(2); </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    Deklaracja dwóch zmiennych.</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Wartosc
+                                    zmiennej a: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;,
+                                    wartosc zmiennej b: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    b </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	a
+                                        = 10; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    Zmiana wartości zmiennej a</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	b
+                                        = 7;	</FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    Zmiana wartości zmiennej b</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Wartosc
+                                    zmiennej a po zmianie: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;,
+                                    wartosc zmiennej b po zmianie: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    b </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	a
+                                        = b; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    Przypisanie zmiennej a wartości zmiennej b.</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Wartosc
+                                    zmiennej a: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;,
+                                    wartosc zmiennej b: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    b </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">return</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    0;</FONT></FONT></FONT></P>
+                                <P STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Przeanalizuj
+                                    powyższy kod. Spróbuj, bez patrzenia na wynik przewidzieć, co
+                                    pojawi się na konsoli.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wynik:</P>
+                                <P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_687c9a66.png" NAME="graphics7" ALIGN=BOTTOM WIDTH=437 HEIGHT=163 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Czy udało Ci się
+                                    poprawnie przeanalizować kod? Jeśli tak, brawo! Jeśli nie spróbuj
+                                    stworzyć nowy projekt, wykorzystać ten kod i modyfikować zmienne,
+                                    tak, by za każdym razem otrzymać inny wynik.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Pamiętaj!</B> <FONT COLOR="#333333"><FONT FACE="Arial, serif"><SPAN STYLE="background: #ffffff">
+</SPAN></FONT></FONT>w operacji przypisania zmianie ulega tylko
+                                    wartość zmiennej znajdującej się po lewej stronie znaku&nbsp;=.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>OPERACJE
+                                    MATEMATYCZNE</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jakie znasz operacje
+                                    matematyczne? Jest to na pewno dodawanie, odejmowanie, mnożenie,
+                                    dzielenie. Każda z tych operacji ma swój operator. Dla dodawania
+                                    jest to +, odejmowania -, mnożenia *, dzielenia /. Istnieje jeszcze
+                                    jedna operacja matematyczna, której najprawdopodobniej nie znasz-
+                                    dzielenie modulo- za pomocą tej operacji uzyskujemy resztę z
+                                    dzielenia liczby, a jej operatorem jest %.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jeśli w swoim
+                                    programie potrzebujesz wykorzystywać operacje matematyczne na
+                                    wartościach znajdujących się w Twoich zmiennych- nie ma problemu!
+                                    Obliczenia wykonuje się w taki sam sposób, jakby to była liczba.
+                                    Najlepiej przedstawić to zagadnienie na przykładzie:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">using</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">namespace</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    std;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 1;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b = 3;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">cout
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;srednia
+                                    liczby a i b: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a + b) / 2 </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wynikiem powyższego
+                                    programu:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_7a7d3f0f.png" NAME="graphics8" ALIGN=BOTTOM WIDTH=437 HEIGHT=115 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Co w przypadku, gdy
+                                    wynik działania będzie nam potrzebny w dalszej części naszego
+                                    programu? Wynik wybranego obliczenia, można również przypisać do
+                                    zmiennych:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    a = 1;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    b = 2;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik = (a*b + 1) - 4; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    przypisanie do zmiennej wynik, wyniku działani</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    wyświetlenie wartości zmiennej wynik</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;wynik
+                                    dzialania: &quot;</FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">wynik
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_2cd4d999.png" NAME="graphics9" ALIGN=BOTTOM WIDTH=437 HEIGHT=151 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jak widzisz, do
+                                    zmiennej wynik została przypisana wartość, będąca wynikiem
+                                    działania na zmiennych a i b. Wartość zmiennej wynik  została
+                                    wyświetlona na konsoli.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Na początku tego
+                                    paragramu wymienialiśmy operacje matematyczne. Wśród nich była
+                                    jedna, która najprawdopodobniej, jest dla Ciebie nowa. Jest to
+                                    operacja modulo, która zwraca resztę z dzielenia dwóch liczb
+                                    całkowitych( tylko i wyłącznie liczb całkowitych, gdybyś chciał
+                                    wykonać tą operację na liczbach typu double- Twój program nie
+                                    skompiluje się, wyrzucając błąd). Operację tą można zapisać w
+                                    następujący sposób:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">using</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">namespace</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    std;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 10; </SPAN></FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b = 3;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynikModulo = a%b;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;wynik
+                                    dzielenia modulo: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynikModulo </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_2cd4d999.png" NAME="graphics10" ALIGN=BOTTOM WIDTH=437 HEIGHT=151 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Operacja modulo,
+                                    którą zwraca liczbę 1, dlaczego? Dzielimy 10 na 3. Wynik tego
+                                    dzielenia to 3 reszty 1, zatem zmienna wynikModulo będzie
+                                    przechowywać wartość reszty-1.</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>WAŻNE! </B>
+                                </P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><B>Wykonując operacje
+                                        matematyczne pamiętaj o kolejności wykonywania działań!</B></P>
+                                    <LI><P STYLE="margin-bottom: 0.11in"><B>Dzieląc dwie zmienne typu
+                                        int uzyskasz wynik typu int! Na przykład dla: </B>
+                                    </P>
+                                </UL>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in">int
+                                    a=10;</P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in">int
+                                    b=4;</P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in">int
+                                    wynik = a/b;</P>
+                                <P CLASS="western" STYLE="margin-left: 0.98in; margin-bottom: 0in"><B>wynik
+                                    to: 2 	</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Omawiając zmienne
+                                    matematyczne chcielibyśmy zwrócić twoją uwagę na to, że oprócz
+                                    zmieniania wartości danej zmiennej, którego nauczyłeś się w
+                                    poprzedniej lekcji, możemy również wykonać operacje matematyczne
+                                    na tej zmiennej, czyli np. zwiększyć jej wartość o 4, podzielić
+                                    jej wartość na 4 itp.
+                                </P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">int
+                                    zmienna=10;</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><FONT COLOR="#c00000"><FONT FACE="Consolas, serif">zmienna=zmienna+10;
+                                </FONT></FONT><FONT COLOR="#00b050"><FONT FACE="Consolas, serif"><FONT SIZE=2>//
+                                    wynik operacji- zwiększenia wartości o 10, 					zapisujemy w
+                                    zmiennej, na której tą operację 					wykonaliśmy.</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0in"><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>INKREMENTACJA I
+                                    DEINKREMENTACJA</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Właśnie poznasz
+                                    nowe operatory, o których zapewnie jeszcze nigdy nie słyszałeś.
+                                    Gdy chcesz zwiększyć bądź zmniejszyć wartość zmiennej o 1,
+                                    możesz to zrobić za pomocą specjalnych operatorów: ++ oraz --.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Dla dodawania:</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <FONT COLOR="#c00000"> <FONT FACE="Consolas, serif">zmienna++;
+                                        //post-inkrementacja</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <FONT COLOR="#c00000"><FONT FACE="Consolas, serif">++zmienna;
+                                        //pre-inkrementacja</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"> Inkrementacja to
+                                    proces zwiększania wartości zmiennej o 1. Oba zapisy, które
+                                    widzisz powyżej, są równoznaczne z : zmienna=zmienna+1 ; O różnicy
+                                    post i pre-inkrementacji powiemy Ci w dalszych modułach. Póki co,
+                                    przyjmij, że oba te zapisy są równoznaczne.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Dla odejmowania:</B></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <FONT COLOR="#c00000"><FONT FACE="Consolas, serif">zmienna--;
+                                        //post-dekrementacja</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                    <FONT COLOR="#c00000"><FONT FACE="Consolas, serif">--zmienna;
+                                        //pre-dekrementacja</FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT SIZE=2 STYLE="font-size: 11pt">Skoro
+                                    inkrementacją nazywamy proces zwiększania wartości zmiennej o 1,
+                                    to dekrementacją nazwiemy proces zmniejszania zmiennej o 1. Oba te
+                                    zapisy są równoznaczne z: zmienna=zmienna-1; </FONT>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT SIZE=2 STYLE="font-size: 11pt">Popatrz
+                                    na przykład:</FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 5;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b = 2;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik = a + b * 3;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	a
+                                        = a + 2;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	b
+                                        = b - 1;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik2 = a + b * 3;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;wynik
+                                    1: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">wynik
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;wynik
+                                    2: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">wynik2
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jeśli zmieniliśmy
+                                    wartość zmiennej, to zmienna wynik wykona operacje matematyczne ale
+                                    na zmienionych zmiennych, wynikiem powyższego programu będzie:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_c4ad34fc.png" NAME="graphics11" ALIGN=BOTTOM WIDTH=437 HEIGHT=151 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>OPERACJE
+                                    PORÓWNANIA</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Kolejnymi
+                                    operacjami, które chcemy omówić są operacje porównania.
+                                    Operatory porównania, które wyróżniamy to:</P>
+                                <TABLE WIDTH=291 CELLPADDING=7 CELLSPACING=0>
+                                    <COL WIDTH=57>
+                                    <COL WIDTH=204>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>Operator</B></FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>Opis</B></FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>&gt;</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest większe od ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>&gt;=</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest większe lub równe niż ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>&lt;</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest mniejsze od ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>&lt;=</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest mniejsze lub równe niż ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>==</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest równe ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                    <TR VALIGN=TOP>
+                                        <TD WIDTH=57 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>!=</FONT></FONT></P>
+                                        </TD>
+                                        <TD WIDTH=204 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                            <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>...
+                                                jest różne od ...</FONT></FONT></P>
+                                        </TD>
+                                    </TR>
+                                </TABLE>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wynikiem wykonanej
+                                    operacji porównania może być wartość true lub false, oznaczające
+                                    odpowiednio prawdę i fałsz. Tak jak operacje matematyczne, operacje
+                                    porównania mogą być  wykonywane bezpośrednio na wartościach i
+                                    zmiennych.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><SPAN LANG="en-US">Na
+przykład: </SPAN>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 100 == 10;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;a:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;b:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(100 != 10) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;c:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(100 &lt;= 10) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;d:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(100 &gt;= 10) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;e:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(100 &gt;  10) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">cout
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;f:
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (100 &lt; 10) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_9a67a292.png" NAME="graphics12" ALIGN=BOTTOM WIDTH=437 HEIGHT=175 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jak widzisz program
+                                    zwrócił wyniki: true bądź false, w zależności od tego czy dane
+                                    porównanie jest prawdziwe czy też nie. Do zmiennej a przypisana
+                                    została wartość operacji porównania czyli false, a nie liczba.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Uwaga!</B> Jeśli
+                                    chcesz wykonywać operację porównania bezpośrednio przy
+                                    wyświetlaniu, pamiętaj, że całe wyrażenie musisz zamknąć
+                                    nawiasem. Bez tego- zwrócony zostanie błąd.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>Uwaga pułapka!
+                                </B>Odróżniaj operator przypisania = od porównania ==. Jeśli
+                                    będziesz chciał porównać dwie wartości:</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">using</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">namespace</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    std;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 3;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b= a = 5;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;a
+= &quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">a
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;b
+= &quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">return</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    0;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wynik jaki otrzymasz
+                                    to:
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_c2f77f69.png" NAME="graphics13" ALIGN=BOTTOM WIDTH=437 HEIGHT=175 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Jak widzisz podczas
+                                    inicjowania zmiennej b błędnie zainicjowano jej wartość, która
+                                    miała być wynikiem porównania liczb 3 i 5 czyli: 0. Zamiast
+                                    operacji porównania została wykorzystana operacja przypisania. W
+                                    konsekwencji kompilator najpierw do zmiennej b przypisał wartość
+                                    zmiennej i uznał to za prawdę ponieważ wartość tej zmiennej jest
+                                    różna od zera. Dlatego za każdym razem, gdy wykonujesz porównanie
+                                    równościowe, sprawdź, czy na pewno skorzystałeś z operatora
+                                    porównania.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>OPERACJE LOGICZNE</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W języku C++
+                                    wyróżniamy trzy podstawowe operacje logiczne:  iloczyn logiczny
+                                    (AND / i ), sumę logiczną (OR/ lub) oraz negację. Operatory
+                                    logiczne dla tych 3 operacji to:</P>
+                                <CENTER>
+                                    <TABLE WIDTH=619 CELLPADDING=7 CELLSPACING=0>
+                                        <COL WIDTH=49>
+                                        <COL WIDTH=71>
+                                        <COL WIDTH=455>
+                                        <TR VALIGN=TOP>
+                                            <TD WIDTH=49 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>Nazwa</B></FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=71 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=CENTER STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>Język
+                                                    C++</B></FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=455 BGCOLOR="#d5dce4" STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>Opis</B></FONT></FONT></P>
+                                            </TD>
+                                        </TR>
+                                        <TR VALIGN=TOP>
+                                            <TD WIDTH=49 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>AND/i</FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=71 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=CENTER STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>&amp;&amp;</B></FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=455 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>Iloczyn
+                                                    logiczny - wszystkie wartości muszą być prawdziwe, aby została
+                                                    zwrócona prawda.</FONT></FONT></P>
+                                            </TD>
+                                        </TR>
+                                        <TR VALIGN=TOP>
+                                            <TD WIDTH=49 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>OR/lub</FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=71 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=CENTER STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>||</B></FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=455 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>Suma
+                                                    logiczna - co najmniej jedna z wartości musi być prawdziwa, aby
+                                                    została zwrócona prawda.</FONT></FONT></P>
+                                            </TD>
+                                        </TR>
+                                        <TR VALIGN=TOP>
+                                            <TD WIDTH=49 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>negacja</FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=71 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=CENTER STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3><B>!</B></FONT></FONT></P>
+                                            </TD>
+                                            <TD WIDTH=455 STYLE="border: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-top: 0.02in"><FONT COLOR="#000000"><FONT SIZE=3>Zanegowanie
+                                                    wartości - czyli zwrócenie wartości przeciwnej.</FONT></FONT></P>
+                                            </TD>
+                                        </TR>
+                                    </TABLE>
+                                </CENTER>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Omówmy poniższy
+                                    przykład, na którym najprościej będzie Ci zrozumieć w jaki
+                                    sposób działają wymienione przez nas operacje logiczne:</P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+c = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+d = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;NEGACJA:
+&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+!a </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;ILOCZYN
+LOGICZNY: &quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">cout
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a &amp;&amp; b) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    prawda i prawda</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a &amp;&amp; c) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    prawda i fałsz</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (c &amp;&amp; b) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    fałsz i prawda</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (c &amp;&amp; d) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    fałsz i fałsz</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;SUMA
+                                    LOGICZNA: &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a || b) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    prawda lub prawda</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (a || c) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    prawda lub fałsz</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (c || b) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    fałsz lub prawda</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    (c || d) </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl; </FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">//
+                                    fałsz lub fałsz</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_dc3935b1.png" NAME="graphics14" ALIGN=BOTTOM WIDTH=437 HEIGHT=235 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Wyniki, które
+                                    otrzymujemy są odzwierciedleniem funkcji jakie dane operacje
+                                    logiczne posiadają. W przypadku negacji wartości a, która jest
+                                    prawdziwa uzyskaliśmy wartość przeciwną czyli fałsz. Dla
+                                    iloczynu logicznego wartość true uzyskaliśmy tylko i wyłącznie
+                                    dla pierwszego przypadku, gdy obie wartości były prawdą.  Dla sumy
+                                    logicznej tylko i wyłącznie dla przypadku, gdy obie wartości są
+                                    fałszywe uzyskujemy fałsz.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>OPERACJE LOGICZNE
+                                    Z OPERACJAMI PORÓWNANIA</B></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Omówiliśmy już
+                                    podstawowe operacje matematyczne, logiczne oraz porównania. Znasz
+                                    już podstawy, jeśli jeszcze nie do końca jesteś przekonany, że
+                                    zrozumiałeś dany materiał, powróć do tych zagadnień. Jeśli
+                                    czujesz, że &quot;wiesz o co biega&quot;, przejdźmy do bardziej
+                                    skomplikowanego zagadnienia tzn. połączmy operacje porównania z
+                                    logicznymi.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Popatrz na poniższy
+                                    przykład:
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">#include</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;iostream&gt;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wartosc = 3; </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">bool</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik = wartosc &gt; 10 || wartosc &lt; 100 &amp;&amp; wartosc != 10;
+                                </FONT></FONT></FONT>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;wynik:
+                                    &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    endl;</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Zmienna wynik
+                                    przyjmuje wynik operacji logicznych, wewnątrz których wykonywane są
+                                    operacje porównania. Kolejność wykonywania operacji logicznych
+                                    jest następująca:</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Najważniejszy jest
+                                    operator negacji, później wykonywane są operacje iloczynu
+                                    logicznego, a na samym końcu sumy logicznej.Jeśli operacje mają
+                                    ten sam priorytet- idziemy od lewej strony.
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Zatem jaki wynik
+                                    powinniśmy otrzymać w powyższym programie? Na początku wykona się
+                                    operacja iloczynu logicznego: 3 &lt; 100 zwraca prawdę 3!=10 również
+                                    zwraca prawdę czli mamy: prawda &amp;&amp; prawda ---&gt; prawda.
+                                    Następnie otrzymany wynik będzie brał udział w operacji sumy
+                                    logicznej: 3&gt;10 to fałsz, fałsz || prawda ----&gt; prawda. Zaten
+                                    na konsoli powinno się ukazać wynik:1, czy tak jest? Sprawdźmy!</P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_e02640db.png" NAME="graphics15" ALIGN=BOTTOM WIDTH=437 HEIGHT=91 BORDER=0></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Oczywiście wynik
+                                    się zgadza :)
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Lekcja, którą
+                                    właśnie skończyliśmy poświęcona została operacjom
+                                    matematycznym, porównania i logicznym. Zachęcamy Cię, żebyś
+                                    przećwiczył te zagadnienia. Poniżej udostępniamy Ci treść
+                                    zadania, potraktuj to jako naukę, jednakże przed skompilowaniem
+                                    tego programu, weź kartkę i spróbuj wydedukować jakie wyniki
+                                    pokażą się na konsoli.
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a = 5;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b = 2;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik = a % b + 10 * a;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik2 = a*b + b;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	++a;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	b
+                                        = b + 2;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik3 = a%b + 10 * a;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                    wynik4 = a*b + b;</FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+c = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+d = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+e = </SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">true</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">;</SPAN></FONT></FONT></FONT></P>
+                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <BR>
+                                </P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+wynik </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+wynik2 </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+wynik3 </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+wynik4 </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(c || d) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(c &amp;&amp; d) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(!c || e &amp;&amp; d)</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(!c &amp;&amp; d &amp;&amp; e) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt; 10 &amp;&amp; a&gt; 1) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" ALIGN=LEFT STYLE="margin-bottom: 0in; line-height: 100%">
+                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt; 10 &amp;&amp; b &lt; 10 || wynik&gt;10) </SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><B>POWODZENIA! :) </B>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><IMG SRC="/img/modul1/MODU_1_html_9832d84b.png" NAME="graphics16" ALIGN=LEFT HSPACE=12 WIDTH=356 HEIGHT=79 BORDER=0><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">	Dzięki tej lekcji:</P>
+                                <UL>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Znasz operacje matematyczne,
+                                        potrafisz je użyć w programie</P>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Znasz operacje porównania,
+                                        potrafisz je użyć w programie</P>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Znasz operacje logiczne,
+                                        potrafisz je użyć w programie
+                                    </P>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Wiesz czym jest inkrementacja i
+                                        deinkrementacja</P>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Potrafisz modyfikować zmienne</P>
+                                    <LI><P STYLE="margin-bottom: 0.11in">Potrafisz łączyć operacje
+                                        logiczne z operacjami porównania</P>
+                                </UL>
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn btn-default btn-md" onclick="window.location.href='/test/1/4'">Przejdź do testu</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <div th:include="layout/generalLayout :: footer"></div>
+</header>
+
+</body>

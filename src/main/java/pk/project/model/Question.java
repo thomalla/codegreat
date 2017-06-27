@@ -3,7 +3,9 @@ package pk.project.model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -37,6 +39,9 @@ public class Question
     @Column(name="isResolved")
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean isResolved;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Answer> answers = new ArrayList<>();
 
     public Long getId()
     {
@@ -111,6 +116,11 @@ public class Question
     public void setResolved(boolean resolved)
     {
         isResolved = resolved;
+    }
+
+    public List<Answer> getAnswers()
+    {
+        return answers;
     }
 }
 

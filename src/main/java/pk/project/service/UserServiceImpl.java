@@ -3,9 +3,11 @@ package pk.project.service;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pk.project.form.RegisterForm;
+import pk.project.model.CurrentUser;
 import pk.project.model.User;
 import pk.project.repository.UserRepository;
 import pk.project.util.Role;
@@ -49,33 +51,8 @@ public class UserServiceImpl implements UserService
         return null;
     }
 
-    /*@Override
-    public Collection<User> getAllUsers() {
-        return userRepository.findAll(new Sort("email"));
-    }*/
-
-   /* @Override
-    public Optional<User> getUserById(long id)
-    {
-        return null;
-    }
-
-    @Override
-    public Optional<User> getUserByEmail(String email)
-    {
-        return null;
-    }
-
-    @Override
-    public Collection<User> getAllUsers()
-    {
-        return null;
-    }*/
-
     @Override
     public User register(RegisterForm registerForm) {
-        /*User user=new User(registerForm.getLogin(),registerForm.getName(),registerForm.getSurname(),registerForm.getEmail(),
-                new BCryptPasswordEncoder().encode(registerForm.getPassword()),tokenGenerator.nextToken());*/
         User user=new User();
         user.setLogin(registerForm.getLogin());
         user.setName(registerForm.getName());
@@ -102,4 +79,20 @@ public class UserServiceImpl implements UserService
         }
         return false;
     }
+
+    @Override
+    public void deleteUser(long id)
+    {
+        userRepository.deleteUserById(id);
+    }
+
+    @Override
+    public void changePassword(String password, Authentication authentication)
+    {
+        CurrentUser currentUser=(CurrentUser)authentication.getPrincipal();
+        currentUser.getUser().setPasswordHash(password);
+        userRepository.save(currentUser.getUser());
+    }
+
+
 }

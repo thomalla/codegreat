@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='TestModul1')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<script>window.onload = counter;</script>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+            <div class="container">
+
+
+
+                <div  class="row margintop">
+                    <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-4" >
+                        <div id="clock"></div>
+
+                    </div>
+
+                </div>
+                <div class="row centered-form">
+                    <div class="box">
+                        <div class ="box-content">
+
+                            <div class = "row">
+                                <ul >
+                                    <div class="col-sm-1">
+
+                                    </div><!-- /col-sm-1 -->
+                                    <div class="col-sm-10">
+                                        <div class="panel panel-warning">
+                                            <form th:if="${correctness==null}" action="check1" method="post">
+                                                <input type="hidden"
+                                                       th:name="${_csrf.parameterName}"
+                                                       th:value="${_csrf.token}" />
+                                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                                </P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><IMG SRC="/img/modul1/MODU_1_html_9932b027.png" NAME="Obraz 25" ALIGN=BOTTOM WIDTH=344 HEIGHT=80 BORDER=0></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 1.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Nieprawdą  jest, że
+                                                    :
+                                                </P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio" id="1">
+                                                        <label><input type="radio" name="1">A) instrukcja if...else
+                                                            jest instrukcją warunkową</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">B) instrukcja if mówi,
+                                                            że jeśli zostaną spełnione odpowiednie warunki, to dana operacja
+                                                            zostanie wykonana</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">C) w instrukcji
+                                                            if...else część else deklaruje dodatkowe warunki, które mają
+                                                            być spełnione</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">D) warunkiem w
+                                                            instrukcji if może być tylko i wyłącznie wartość true bądź
+                                                            false</label>
+                                                    </div>
+                                                </div>
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 2.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W wyniku
+                                                    działania poniższego programu na ekranie:</P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+main()</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a(1);</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">int</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+b(12);</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">bool</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+w(</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">false</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">);</SPAN></FONT></FONT></FONT></P>
+                                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <BR>
+                                                </P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &lt;b &amp;&amp; b&gt; 20 || !w )</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;zwrocono
+                                                    true&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" STYLE="margin-left: 0.49in; margin-bottom: 0.11in">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">A) zwrocono true</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">B) błąd kompilacji</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">C) nic nie zostanie wyswietlone</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 3.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">W wyniku działania poniższego
+                                                    programu na ekranie:</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">A) Kompilator analizuje i uwzględnia komentarze w procesie zamieniania kodu źródłowego na wynikowy</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">B) Hello world to program, który realizuje funkcję demonstracyjną danego języka programowania</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">C) std to popularna dyrektywa preprocesora w języku C++</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">D) wszystkie odpowiedzi są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 4.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Gdy użytkownik poda
+                                                    liczbę 113 poniższy program:</P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#808080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">#include</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;
+iostream&gt;</SPAN></FONT></FONT></FONT></P>
+                                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <BR>
+                                                </P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">using</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">namespace</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+std;</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    main()</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">int</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    a(0);</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Podaj
+                                                    dodatnią liczbę maksymalnie 2 cyfrową &quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">cin
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&gt;&gt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+a;</SPAN></FONT></FONT></FONT></P>
+                                                <P LANG="en-US" CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <BR>
+                                                </P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a &gt; 0 &amp;&amp; a&lt;= 99)</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">	{</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a %2== 0 &amp;&amp; a!=2)</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                                    podzielna przez 2&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a % 3 == 0 &amp;&amp; a!=3)</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		{</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">			cout
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&quot;Liczba
+podzielna przez 3&quot;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">&lt;&lt;</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+endl;</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		}</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+</SPAN></FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">if</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">
+(a % 5 == 0 &amp;&amp; a!=5)</SPAN></FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt"><SPAN LANG="en-US">		</SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                                    podzielna przez 5&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">if</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    (a % 7 == 0 &amp;&amp; a!=7)</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                                    podzielna przez 7&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">			cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Liczba
+                                                    pierwsza&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	</FONT></FONT></FONT><FONT COLOR="#0000ff"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">else</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	{</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">		cout
+                                                    </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#a31515"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&quot;Nieodpowiednia
+                                                    liczba!&quot;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                </FONT></FONT></FONT><FONT COLOR="#008080"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">&lt;&lt;</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">
+                                                    endl;</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">	}</FONT></FONT></FONT></P>
+                                                <P CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.98in; margin-bottom: 0in; line-height: 100%">
+                                                    <BR>
+                                                </P>
+                                                <P STYLE="margin-left: 1.48in; margin-bottom: 0.11in"><FONT COLOR="#000000"><FONT FACE="Consolas, serif"><FONT SIZE=2 STYLE="font-size: 9pt">}</FONT></FONT></FONT></P>
+                                                <P STYLE="margin-left: 0.98in; margin-bottom: 0.11in"><BR><BR>
+                                                </P>
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">A) wykona się,
+                                                            wyświetlony zostanie komunikat liczba pierwsza</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">B) wykona się,
+                                                            wyświetlony zostanie komunikat Liczba podzielna przez 3</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">C) wykona się,
+                                                            wyświetlony zostanie komunikat Nieodpowiednia liczba</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">D) nie wykona się-
+                                                            błąd</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 5.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Pętla do...while
+                                                    jest podobna do pętli while z tą różnicą:</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">A) że warunek sprawdzany w trakcie
+                                                            wykonywania pętli</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">B) że warunek sprawdzany jest przed
+                                                            każdym wykonaniem pętli</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">C) że warunek sprawdzany jest po
+                                                            każdym wykonaniu pętli</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">D) żadna z odpowiedzi nie jest
+                                                            poprawna</label>
+                                                    </div>
+                                                </div>
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 6.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Instrukcja break powoduje:</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">A) zakończenie instrukcji switch</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">B) wyjście z pętli for</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">C) obie odpowiedzi są prawidłowe</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">D) odpowiedź a i b są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <button class="btn btn-default btn-md" type="submit">Sprawdź</button>
+                                            </form>
+
+                                            <div th:if="${correctness!=null}">
+                                                <div class="well well-sm">
+                                                    <h2><b>TWÓJ WYNIK TO <span th:text="${score}+'/2'"></span></b></h2>
+                                                </div>
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><b>TWOJE ODPOWIEDZI:</b></P>
+                                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                                </P>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
+<script type="text/javascript" src="js/likeButton.js"></script>
+</body>

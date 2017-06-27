@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+    <div class="container">
+        <hr/>
+        <hr/>
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Kurs języka C++
+                    <small>z nami możesz więcej</small>
+                </h1>
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <div class="box">
+                    <div class ="box-content">
+                        <H1 CLASS="western" ALIGN=CENTER><A NAME="_Toc483499940"></A>PROGRAMOWANIE
+                            W C++ MODUŁ 1</H1>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">Witaj! Cieszymy się,
+                            że postanowiłeś rozpocząć naukę programowania za pomocą
+                            naszego kursu. Stworzony przez nas kurs jest dedykowany ludziom,
+                            którzy chcą rozpocząć swoją przygodę z programowaniem.
+                            Korzystając z naszych doświadczeń oraz zdobytej wiedzy dołożymy
+                            wszelkich starań, byś jak najlepiej poznał zagadnienia związane z
+                            programowaniem w C++. <IMG SRC="/img/modul1/MODU_1_html_109dd54d.jpg" NAME="Obraz 1" ALIGN=LEFT HSPACE=12 WIDTH=272 HEIGHT=272 BORDER=0>
+                        </P>
+                        <P CLASS="western" STYLE="margin-bottom: 0.11in">	Jest wiele osób,
+                            które chcą nauczyć się programować, wiele osób podejmuje próby
+                            nauki programowania, jednakże poddają się na samym początku
+                            swojej programistycznej przygody, zniechęceni przez problemy, które
+                            napotkali. Pamiętaj, nie bądź dla siebie zbyt surowy, nie poddawaj
+                            się w sytuacji, gdy napotkasz przeszkody.  Programowanie uczy
+                            cierpliwości i wytrwałości. Czasem mały błąd może spowodować,
+                            że Twój program nie zadziała, a znalezienie go będzie
+                            czasochłonnym procesem. Gdy jakieś zagadnienie będzie stanowiło
+                            dla Ciebie duży problem, nie zrozumiesz go dokładnie- powtórz daną
+                            lekcję. Odłożenie rzeczy, które sprawią Ci kłopoty odbije się
+                            w przyszłości, gdy zaczniesz poznawać, nowe, bardziej
+                            skomplikowane zagadnienia, których bez rozumienia postaw, możesz
+                            nie rozgryźć.  My, twórcy tego kursu, też kiedyś zaczynaliśmy,
+                            wiemy jaką drogę trzeba pokonać, żeby posiadać wiedzę, która
+                            pozwoli na swobodne pisanie programów w C++, dlatego wiedz, że
+                            wierzymy w Ciebie, a przygotowany przez nas kurs umożliwi Ci
+                            osiągnięcie tej swobody. Powodzenia!
+                        </P>
+                        <P align="left">Co zawiera moduł?</P>
+                        <ul style="text-align: left" >
+                            <li >LEKCJA 1: Programowanie - tworzenie dzieła.</li>
+                            <li>LEKCJA 2: PIERWSZY PROGRAM W C++</li>
+                            <li>LEKCJA 3: ZMIENNE</li>
+                            <li>LEKCJA 4: OPERACJE NA ZMIENNYCH</li>
+                            <li>LEKCJA 6: TWOJE PIERWSZE ZLECENIE</li>
+                            <li>TEST</li>
+                        </ul>
+                        <hr/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
+
+</body>

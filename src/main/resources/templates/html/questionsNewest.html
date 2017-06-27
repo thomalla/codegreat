@@ -9,12 +9,17 @@
     <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
     <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
 </div>
+<div th:include="layout/generalLayout :: scripts"></div>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 <header>
-
+    <script type="text/javascript" src="js/likeButton.js"></script>
     <link href="/css/boxstyle.css" rel="stylesheet">
 
     <div class="container">
+        <div th:if="${currentUser==null}" >
+            <hr/>
+            <hr/>
+        </div>
         <div th:if="${currentUser!=null}" class="row margintop">
             <div class="col-sm-8">
             </div>
@@ -29,17 +34,15 @@
 
                     <div class = "row">
                         <ul th:each="question:${newestQuestions.getContent()}">
-                        <div class="col-sm-1">
-                            <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-sm-1 -->
-                        <div class="col-sm-11">
+                        <div class="col-sm-12">
                             <div class="panel panel-warning">
                                 <div class="panel-heading">
-                                    <strong><p th:text="${question.getUsername()}"/></strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                    <strong><p th:text="${question.getUsername()}"/></strong> <span class="text-muted" th:text="${question.getDate()}">
                                     <div class = "row">
                                         <strong><span class="text-muted" th:text="${question.getTopic()}"></span></strong>
+                                        <div th:if="${question.isAnswered() == true}" class="row margintop">
+                                            <img src="https://cdn4.iconfinder.com/data/icons/customicondesignoffice2/128/success.png"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="panel-body">
@@ -57,6 +60,7 @@
             </div>
 
         </div>
+    <div th:include="layout/generalLayout :: footer"></div>
 </header>
-<script type="text/javascript" src="js/likeButton.js"></script>
+
 </body>

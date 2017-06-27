@@ -2,13 +2,17 @@ package pk.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import pk.project.form.RegisterForm;
+import pk.project.model.CurrentUser;
 import pk.project.model.User;
 import pk.project.service.UserService;
 import pk.project.util.EmailSender;
@@ -27,12 +31,14 @@ public class UserController
 {
     private final UserService userService;
     private final RegisterValidator registerValidator;
+    private final CurrentUserControllerAdvice currentUserControllerAdvice;
 
     @Autowired
-    public UserController(UserService userService, RegisterValidator registerValidator)
+    public UserController(UserService userService, RegisterValidator registerValidator, CurrentUserControllerAdvice currentUserControllerAdvice)
     {
         this.userService = userService;
         this.registerValidator = registerValidator;
+        this.currentUserControllerAdvice=currentUserControllerAdvice;
     }
 
     @InitBinder("form")
@@ -97,5 +103,58 @@ public class UserController
         return Template.REGISTER_SUCCESS;
     }
 
-    
+    @RequestMapping(value = Web.ACCOUNTEDITION, method = RequestMethod.GET)
+    public String serveAccountEditionPage()
+    {
+        return Template.ACCOUNTEDITION;
+    }
+
+    @RequestMapping(value = Web.DELETEACCOUNTCONFIRMATION, method = RequestMethod.GET)
+    public String serveDeleteAccountConfirmationPage()
+    {
+        return Template.DELETEACCOUNTCONFIRMATION;
+    }
+
+    @Transactional
+    @RequestMapping(value = Web.DELETEACCOUNT, method = RequestMethod.POST)
+    public String deleteUser(Authentication authentication)
+    {
+        userService.deleteUser(currentUserControllerAdvice.getCurrentUser(authentication).getId());
+        return Template.DELETEACCOUNT;
+    }
+
+    @RequestMapping(value = Web.CHANGEPASSWORD, method = RequestMethod.GET)
+    public String servePasswordChangePage()
+    {
+        return Template.CHANGEPASSWORD;
+    }
+
+    @RequestMapping(value = Web.CHANGEPASSWORD, method = RequestMethod.POST)
+    public String changePassword(@RequestParam String currentPassword,@RequestParam String password,@RequestParam String passwordRepeated, Authentication authentication, Model model)
+    {
+        List<String> errorList=new ArrayList<>();
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        CurrentUser currentUser=(CurrentUser)authentication.getPrincipal();
+
+        if(!encoder.matches(currentPassword,currentUser.getUser().getPasswordHash()))
+        {
+            errorList.add("Twoje aktualne hasło nie jest prawidłowe");
+        }
+        if(!password.equals(passwordRepeated))
+        {
+            errorList.add("Wprowadzone hasła nie zgadzają się");
+        }
+        else if(password.length()<8||password.length()>30)
+        {
+            errorList.add("Nowe hasło musi zawierać od 8 do 30 znaków");
+        }
+        model.addAttribute("errors",errorList);
+        if(errorList.isEmpty())
+        {
+            userService.changePassword(encoder.encode(password), authentication);
+            return Template.CHANGEPASSWORDSUCCESS;
+        }
+        return Template.CHANGEPASSWORDFAILED;
+
+    }
 }

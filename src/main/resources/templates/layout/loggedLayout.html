@@ -3,6 +3,13 @@
 
 <body>
 <div th:fragment="toolbar">
+    <style>
+        .btn-logout {
+            width: 100%;
+            padding: 15px 20px !important;
+            text-align: left !important;
+        }
+    </style>
     <!-- Navigation -->
     <nav class="navbar navbar-fixed-top navbar-inverse" style="background-color: #1F1F1F;" role="navigation">
         <div class="container">
@@ -34,12 +41,25 @@
                         <a href="/questions/newest/1">Forum</a>
                     </li>
                     <li>
-                        <form action="/logout" method="post">
-                            <input type="hidden"
-                                   th:name="${_csrf.parameterName}"
-                                   th:value="${_csrf.token}" />
-                            <button class="btn btn-link" type="submit">Wyloguj się</button>
-                        </form>
+                        <a href="/allModules">Kurs</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-link btn-logout dropdown-toggle" type="button" data-toggle="dropdown"><span th:text="${currentUser.getUser().getLogin()}" ></span>
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/accountEdition">Edycja konta</a></li>
+                                <li><a href="#">Statystyki</a></li>
+                                <li>
+                                    <form action="/logout" method="post">
+                                        <input type="hidden"
+                                               th:name="${_csrf.parameterName}"
+                                               th:value="${_csrf.token}" />
+                                        <button class="btn  btn-logout" type="submit">Wyloguj się &nbsp; <span class="glyphicon glyphicon-log-out"></span></button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                 </ul>
@@ -51,13 +71,7 @@
     </nav>
 
 </div>
-<div th:fragment="scripts">
-    <!-- jQuery-->
-    <script src="/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript-->
-    <script src="/js/bootstrap.min.js"></script>
-</div>
 </body>
 
 </html>

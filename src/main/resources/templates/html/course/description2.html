@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/sb.css" rel="stylesheet">
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+            <div class="container">
+                <hr/>
+                <hr/>
+
+                <!-- Page Heading/Breadcrumbs -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Kurs języka C++
+                            <small>z nami możesz więcej</small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Sidebar Column -->
+                    <div class="col-md-3" th:include="layout/courseLayout :: sidebar"></div>
+                    <!-- Content Column -->
+                    <div class="col-md-9">
+                        <div class="box">
+                            <div class ="box-content">
+
+                                <H1 CLASS="western" ALIGN=CENTER><A NAME="_Toc484706155"></A><A NAME="_Toc483499940"></A>
+                                    PROGRAMOWANIE W C++ MODUŁ 2</H1>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Witaj! Na wstępie
+                                    chcielibyśmy Ci pogratulować, pierwszy moduł jest już za Tobą.
+                                    Świetna robota! Znasz już podstawy programowania w języku C++,
+                                    umiesz napisać prosty program wykorzystujący operacje logiczne,
+                                    matematyczne oraz porównania oraz poznałeś dwie funkcje
+                                    udostępniane przez bibliotekę &lt;iostream&gt; cin i cout. Moduł
+                                    drugi rozszerzy Twoją wiedzę na temat podstaw języka C++. Poznasz
+                                    w nim instrukcje warunkowe oraz pętle Treści które poznasz na tym
+                                    module są bardzo ważne i jesteśmy przekonani, że na każdym
+                                    etapie swojej przygody z programowaniem będziesz wykorzystywać za
+                                    każdym razem, gdy będziesz pisać jakiś program. Pamiętaj, jeśli
+                                    są rzeczy, których w poprzednim module nie za dobrze zrozumiałeś,
+                                    wróć do tych  treści, tak jak mówiliśmy, zostawienie jakiś
+                                    zagadnień nie do końca zrozumianych zapewne przysporzy Ci w dalszej
+                                    nauce programowani kłopotów.</P>
+
+                                <DIV ID="Table of Contents1" DIR="LTR">
+                                    <P STYLE="margin-bottom: 0.07in"><BR><BR>
+                                    </P>
+                                </DIV>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><BR>
+                                </P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
+
+</body>

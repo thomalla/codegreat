@@ -8,6 +8,7 @@
         <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
         <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
     </div>
+    <div th:include="layout/generalLayout :: scripts"></div>
     <div id="fullscreen_bg" class="fullscreen_bg"/>
 
     <header>
@@ -21,6 +22,8 @@
             </div>
             <div th:if="${currentUser}" class="intro-text"><div th:text="'Witaj '+${currentUser.getUser().getLogin()}+'!'" class="intro-lead-in"></div></div>
         </div>
+
+
     </header>
 
 </body>

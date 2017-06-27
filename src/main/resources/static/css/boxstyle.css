@@ -87,3 +87,6 @@
     resize: none;
 }
 
+.list li {
+    text-align:left;
+}

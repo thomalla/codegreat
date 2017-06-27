@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/generalLayout :: head(pageTitle='TestModul1')">
+</head>
+
+<body>
+<div th:switch="${currentUser!=null}">
+    <div th:case="false" th:include="layout/unloggedLayout :: toolbar"></div>
+    <div th:case="true" th:include="layout/loggedLayout :: toolbar"></div>
+</div>
+<div th:include="layout/generalLayout :: scripts"></div>
+
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<script>window.onload = counter;</script>
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+
+
+    <div th:switch="${currentUser!=null}">
+        <div th:case="false">
+
+            <hr/>
+            <hr/>
+            <div class="container">
+                <link href="/css/boxstyle.css" rel="stylesheet">
+                <p>Nie masz uprawnień aby wejść na tą podstronę</p>
+            </div>
+
+        </div>
+        <div th:case="true">
+            <div class="container">
+
+
+
+                <div  class="row margintop">
+                    <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-4" >
+                        <div id="clock"></div>
+
+                    </div>
+
+                </div>
+                <div class="row centered-form">
+                    <div class="box">
+                        <div class ="box-content">
+
+                            <div class = "row">
+                                <ul >
+                                    <div class="col-sm-1">
+
+                                    </div><!-- /col-sm-1 -->
+                                    <div class="col-sm-10">
+                                        <div class="panel panel-warning">
+                                            <form>
+                                                <input type="hidden"
+                                                       th:name="${_csrf.parameterName}"
+                                                       th:value="${_csrf.token}" />
+                                                <P STYLE="margin-left: 0.99in; margin-bottom: 0in"><BR>
+                                                </P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in"><BR><IMG SRC="/img/modul1/MODU_1_html_9932b027.png" NAME="Obraz 25" ALIGN=BOTTOM WIDTH=344 HEIGHT=80 BORDER=0></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 1.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Prawdą jest, że:
+                                                </P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio" id="1">
+                                                        <label><input type="radio" name="1">A) Kompilator przekształca kod wynikowy na wykonywalną aplikację</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">B) Kompilacja nie powiedzie się w przypadku pojawienia się ostrzeżenia- warning</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">C) Nie powinno się bagatelizować ostrzeżeń, gdyż w przyszłości mogą one doprowadzić do błędu.</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="1">D) Wszystkie odpowiedzi są poprawne</label>
+                                                    </div>
+                                                </div>
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 2.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Język C++</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">A) Jest nowoczesnym językiem</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">B) nie jest uniwersalny, wyłącznie można korzystać z kompilatorów dla Windows</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">C) jest językiem skomplikowanym, którego poznanie nie daje możliwości łatwiejszego korzystania z innych języków</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="2">D) jest nowym językiem, który został wprowadzony dopiero w XXIw</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 3.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Prawdą jest, że</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">A) Kompilator analizuje i uwzględnia komentarze w procesie zamieniania kodu źródłowego na wynikowy</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">B) Hello world to program, który realizuje funkcję demonstracyjną danego języka programowania</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">C) std to popularna dyrektywa preprocesora w języku C++</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="3">D) wszystkie odpowiedzi są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 4.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Debuger:</P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">A) odpowiada za kolorowanie składni</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">B) przekształca kod źródłowy na wykonywalną aplikację</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">C) to synonim środowiska programistycznego</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="4">D) posiada funkcję diagnostyczną- wyszukuje błędy w kodzie</label>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 5.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Biblioteka: </P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">A) może być dołączona do programu za pomocą dyrektywy #include</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">B) "iostream" obsługuje strumień wejścia i wyjścia</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">C) umożliwia uzyskanie funkcji, które możemy wykorzystać w programie</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="5">D) szystkie odpowiedzi są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+                                                <P CLASS="western" STYLE="margin-bottom: 0in"><B>PYTANIE 6.</B></P>
+                                                <P CLASS="western" STYLE="margin-bottom: 0.11in">Prawdą jest, że: </P>
+
+                                                <p align="left">Odpowiedzi:</p>
+                                                <div style="text-align: left">
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">A) int main() to najważniejsza część programu, w której {} wyznaczają odpowiednio początek i koniec programu</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">B) camelCase to przepis na tworzenie nazw np. int nazwa_zmiennej; </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">C) unsigned oznacza, że dana zmienna może przechowywać tylko wartości ujemne</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="6">D) odpowiedź a i b są poprawne</label>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <button class="btn btn-default btn-md" type="submit">Sprawdź</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="layout/generalLayout :: footer"></div>
+</header>
+<script type="text/javascript" src="js/likeButton.js"></script>
+</body>
