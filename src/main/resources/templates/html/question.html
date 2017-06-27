@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/generalLayout :: head(pageTitle='Forum')">
+</head>
+
+<body>
+<div th:include="layout/generalLayout :: toolbar"></div>
+<div th:include="layout/generalLayout :: scripts"></div>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<header>
+
+    <link href="/css/boxstyle.css" rel="stylesheet">
+
+    <div class="container">
+        <div class="row centered-form">
+            <div class="box">
+                <div class ="box-content">
+
+                    <div class="col-sm-1">
+                        <div class="thumbnail">
+                            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                        </div><!-- /thumbnail -->
+                    </div><!-- /col-sm-1 -->
+                    <div class="col-sm-11">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <strong><p th:text="${question.getUsername()}"/></strong> <span class="text-muted">Dodano 5 dni temu</span>
+                                <div class = "row">
+                                    <strong><span class="text-muted" th:text="${question.getTopic()}"></span></strong>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p th:text="${question.getContents()}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <p align="left">Odpowiedzi:</p>
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="thumbnail">
+                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                            </div><!-- /thumbnail -->
+                        </div><!-- /col-sm-1 -->
+
+                        <div class="col-sm-11">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <strong>username</strong> <span class="text-muted">Dodano 5 dni temu</span>
+
+                                </div>
+                                <div class="panel-body">
+                                    <p>Podaje hasło: OKOń</p>
+                                    <button class="btn btn-sm btn-default like-btn " type="button" id="1">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                                        <span class="badge like-badge">8</span>
+                                    </button>
+                                    <button class="btn btn-sm btn-default unlike-btn" type="button" id="2">
+                                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        <span class="badge like-badge">10</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                <form>
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+
+                                <textarea placeholder="Twoja odpowiedz" class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                        </div>
+                    <div class="col-sm-2">
+                    </div>
+
+                            <div class="col-sm-12">
+                    <button align="center" type="submit" class="btn btn-success">Odpowiedz</button>
+                            </div>
+                </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<script type="text/javascript" src="js/likeButton.js"></script>
+</body>
